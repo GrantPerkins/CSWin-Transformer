@@ -6,6 +6,7 @@
 # ------------------------------------------
 
 import argparse
+import copy
 import time
 import yaml
 import os
@@ -688,6 +689,7 @@ def main():
     eval_metric = args.eval_metric
     best_metric = None
     best_epoch = None
+    best_model = None
     
     if args.eval_checkpoint:  # evaluate the model
         load_checkpoint(model, args.eval_checkpoint, args.model_ema)
@@ -724,6 +726,7 @@ def main():
                     _logger.info("Distributing BatchNorm running means and vars")
                 distribute_bn(model, args.world_size, args.dist_bn == 'reduce')
 
+            print("REAL EVAL I THINK")
             eval_metrics = validate(model, loader_eval, validate_loss_fn, args, amp_autocast=amp_autocast)
 
             if model_ema is not None and not args.model_ema_force_cpu:
@@ -745,6 +748,8 @@ def main():
                 # save proper checkpoint with eval metric
                 save_metric = eval_metrics[eval_metric]
                 best_metric, best_epoch = saver.save_checkpoint(epoch, metric=save_metric)
+                if epoch == best_epoch:
+                    best_model = copy.deepcopy(model)
     except KeyboardInterrupt:
         pass
 
@@ -769,6 +774,7 @@ def main():
         )
 
         m = Metrics("CSWin", ["1", "2", "3", "4"])
+        model = best_model
 
         model.eval()
 

@@ -22,7 +22,7 @@ class Metrics:
         self.classes = len(self.labels)
 
     def evaluate(self, truths, predictions):
-        print(type(truths), type(predictions))
+        print(truths, predictions)
         # summary statistics
         accuracy = sklearn.metrics.accuracy_score(truths, predictions)
         f1 = sklearn.metrics.f1_score(truths, predictions, average="macro")
