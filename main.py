@@ -739,9 +739,7 @@ def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix='')
 
             torch.cuda.synchronize()
 
-            print("output", output.numpy().shape)
-            print("target", target.numpy().shape)
-            print()
+
 
             losses_m.update(reduced_loss.item(), input.size(0))
             top1_m.update(acc1.item(), output.size(0))
