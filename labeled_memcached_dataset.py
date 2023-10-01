@@ -21,9 +21,9 @@ class McDataset(Dataset):
         self.transform = transform
         self.root = os.path.join(data_root, phase)
         
-        temp_label = json.load(open('./dataset/imagenet_class_index.json', 'r'))
+        temp_label = json.load(open('./dataset/piid_class_index.json', 'r'))
         self.labels = {}
-        for i in range(1000):
+        for i in range(4):
             self.labels[temp_label[str(i)][0]] = i
         self.A_paths = []
         self.A_labels = []
@@ -41,10 +41,8 @@ class McDataset(Dataset):
         return self.num
  
     def __getitem__(self, index):
-        try:
-            return self.load_img(index)
-        except:
-            return self.__getitem__(random.randint(0, self.__len__()-1))
+        return self.load_img(index)
+        # return self.__getitem__(random.randint(0, self.__len__()-1))
 
     def load_img(self, index):
         A_path = self.A_paths[index % self.A_size]

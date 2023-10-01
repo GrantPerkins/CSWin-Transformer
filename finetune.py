@@ -597,7 +597,7 @@ def main():
     if not os.path.exists(train_dir):
         _logger.error('Training folder does not exist at: {}'.format(train_dir))
         exit(1)
-    dataset_train = McDataset(args.data, './dataset/ILSVRC2012_name_train.txt', 'train')
+    dataset_train = McDataset(args.data, './dataset/piid_name_train.txt', 'train')
 
     collate_fn = None
     mixup_fn = None
@@ -655,7 +655,7 @@ def main():
         if not os.path.isdir(eval_dir):
             _logger.error('Validation folder does not exist at: {}'.format(eval_dir))
             exit(1)
-    dataset_eval = McDataset(args.data, './dataset/ILSVRC2012_name_val.txt', 'val')
+    dataset_eval = McDataset(args.data, './dataset/piid_name_val.txt', 'val')
 
     loader_eval = create_loader(
         dataset_eval,
@@ -889,7 +889,7 @@ def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix='')
                 target = target[0:target.size(0):reduce_factor]
 
             loss = loss_fn(output, target)
-            acc1, acc5 = accuracy(output, target, topk=(1, 5))
+            acc1, acc5 = accuracy(output, target, topk=(1, 4))
 
             if args.distributed:
                 reduced_loss = reduce_tensor(loss.data, args.world_size)
