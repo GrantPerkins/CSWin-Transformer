@@ -929,7 +929,7 @@ def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix='')
     losses_m = AverageMeter()
     top1_m = AverageMeter()
     top5_m = AverageMeter()
-    m = Metrics("CSWin", ["1", "2", "3", "4"])
+
 
     model.eval()
 
@@ -976,6 +976,7 @@ def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix='')
             # print()
             predictions = tmp_out.cpu().numpy().argmax(axis=1).tolist()
             labels = tmp_tar.cpu().numpy().tolist()
+            m = Metrics("CSWin", ["1", "2", "3", "4"])
             m.evaluate(labels, predictions)
 
 
