@@ -780,6 +780,8 @@ def main():
         end = time.time()
         last_idx = len(loader_test) - 1
         with torch.no_grad():
+            all_pred = []
+            all_truth = []
             for batch_idx, (input, target) in enumerate(loader_test):
                 last_batch = batch_idx == last_idx
                 if not args.prefetcher:
@@ -816,7 +818,9 @@ def main():
                 # print()
                 predictions = tmp_out.cpu().numpy().argmax(axis=1).tolist()
                 labels = tmp_tar.cpu().numpy().tolist()
-                m.evaluate(labels, predictions)
+                all_pred.extend(predictions)
+                all_truth.extend(labels)
+        m.evaluate(all_truth, all_pred)
 
 
 
