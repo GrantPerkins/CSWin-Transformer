@@ -726,7 +726,6 @@ def main():
                     _logger.info("Distributing BatchNorm running means and vars")
                 distribute_bn(model, args.world_size, args.dist_bn == 'reduce')
 
-            print("REAL EVAL I THINK")
             eval_metrics = validate(model, loader_eval, validate_loss_fn, args, amp_autocast=amp_autocast)
 
             if model_ema is not None and not args.model_ema_force_cpu:
