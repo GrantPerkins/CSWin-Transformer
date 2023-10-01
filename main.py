@@ -734,6 +734,13 @@ def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix='')
                 reduced_loss = reduce_tensor(loss.data, args.world_size)
                 acc1 = reduce_tensor(acc1, args.world_size)
                 acc5 = reduce_tensor(acc5, args.world_size)
+                output = reduce(output, args.world_size)
+                output = output.numpy()
+                print(output.shape)
+                target = reduce(target, args.world_size)
+                target = target.numpy()
+                print(target.shape)
+                print()
             else:
                 reduced_loss = loss.data
 
