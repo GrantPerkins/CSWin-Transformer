@@ -752,6 +752,71 @@ def main():
     if best_metric is not None:
         _logger.info('*** Best metric: {0} (epoch {1})'.format(best_metric, best_epoch))
 
+        dataset_test = McDataset(args.data, './dataset/piid_name_test.txt', 'test')
+        loader_test = create_loader(
+            dataset_test,
+            input_size=data_config['input_size'],
+            batch_size=args.validation_batch_size_multiplier * args.batch_size,
+            is_training=False,
+            use_prefetcher=args.prefetcher,
+            interpolation=data_config['interpolation'],
+            mean=data_config['mean'],
+            std=data_config['std'],
+            num_workers=args.workers,
+            distributed=args.distributed,
+            crop_pct=data_config['crop_pct'],
+            pin_memory=args.pin_mem,
+        )
+
+        m = Metrics("CSWin", ["1", "2", "3", "4"])
+
+        model.eval()
+
+        end = time.time()
+        last_idx = len(loader_test) - 1
+        with torch.no_grad():
+            for batch_idx, (input, target) in enumerate(loader_test):
+                last_batch = batch_idx == last_idx
+                if not args.prefetcher:
+                    input = input.cuda()
+                    target = target.cuda()
+                if args.channels_last:
+                    input = input.contiguous(memory_format=torch.channels_last)
+
+                with amp_autocast():
+                    output = model(input)
+                if isinstance(output, (tuple, list)):
+                    output = output[0]
+
+                # augmentation reduction
+                reduce_factor = args.tta
+                if reduce_factor > 1:
+                    output = output.unfold(0, reduce_factor, reduce_factor).mean(dim=2)
+                    target = target[0:target.size(0):reduce_factor]
+
+
+                if args.distributed:
+                    acc1 = reduce_tensor(acc1, args.world_size)
+                    acc5 = reduce_tensor(acc5, args.world_size)
+                    tmp_out = reduce_tensor(output, args.world_size)
+                    tmp_tar = reduce_tensor(target, args.world_size)
+                else:
+                    tmp_out = output
+                    tmp_tar = target
+
+                torch.cuda.synchronize()
+
+                # print("output", tmp_out.cpu().numpy().shape)
+                # print("target", tmp_tar.cpu().numpy().shape)
+                # print()
+                predictions = tmp_out.cpu().numpy().argmax(axis=1).tolist()
+                labels = tmp_tar.cpu().numpy().tolist()
+                m.evaluate(labels, predictions)
+
+
+
+
+
 
 def train_epoch(
         epoch, model, loader, optimizer, loss_fn, args, freeze=False,
@@ -909,8 +974,8 @@ def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix='')
             # print("output", tmp_out.cpu().numpy().shape)
             # print("target", tmp_tar.cpu().numpy().shape)
             # print()
-            predictions = tmp_out.cpu().numpy().argmax(axis=1)
-            labels = tmp_tar.cpu().numpy()
+            predictions = tmp_out.cpu().numpy().argmax(axis=1).tolist()
+            labels = tmp_tar.cpu().numpy().tolist()
             m.evaluate(labels, predictions)
 
 
