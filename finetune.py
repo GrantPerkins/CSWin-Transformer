@@ -29,6 +29,7 @@ from timm.utils import ApexScaler, NativeScaler
 from checkpoint_saver import CheckpointSaver
 from labeled_memcached_dataset import McDataset
 import torch.optim as optim
+from metrics import Metrics
 
 torch.backends.cudnn.benchmark = True
 _logger = logging.getLogger('train')
@@ -863,6 +864,7 @@ def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix='')
     losses_m = AverageMeter()
     top1_m = AverageMeter()
     top5_m = AverageMeter()
+    m = Metrics("CSWin", ["1", "2", "3", "4"])
 
     model.eval()
 
@@ -904,9 +906,13 @@ def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix='')
 
             torch.cuda.synchronize()
 
-            print("output", tmp_out.cpu().numpy().shape)
-            print("target", tmp_tar.cpu().numpy().shape)
-            print()
+            # print("output", tmp_out.cpu().numpy().shape)
+            # print("target", tmp_tar.cpu().numpy().shape)
+            # print()
+            predictions = tmp_out.cpu().numpy().argmax(axis=1)
+            labels = tmp_tar.cpu().numpy()
+            m.evaluate(labels, predictions)
+
 
             losses_m.update(reduced_loss.item(), input.size(0))
             top1_m.update(acc1.item(), output.size(0))
