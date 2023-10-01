@@ -734,17 +734,14 @@ def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix='')
                 reduced_loss = reduce_tensor(loss.data, args.world_size)
                 acc1 = reduce_tensor(acc1, args.world_size)
                 acc5 = reduce_tensor(acc5, args.world_size)
-                output = reduce(output, args.world_size)
-                output = output.numpy()
-                print("output", output.shape)
-                target = reduce(target, args.world_size)
-                target = target.numpy()
-                print("target", target.shape)
-                print()
             else:
                 reduced_loss = loss.data
 
             torch.cuda.synchronize()
+
+            print("output", output.numpy().shape)
+            print("target", target.numpy().shape)
+            print()
 
             losses_m.update(reduced_loss.item(), input.size(0))
             top1_m.update(acc1.item(), output.size(0))
