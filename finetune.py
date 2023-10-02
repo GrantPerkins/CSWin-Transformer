@@ -859,6 +859,8 @@ def train_epoch(
             output = model(input)
             loss = loss_fn(output, target)
 
+
+        print("shapes", output.shape, target.shape)
         # calculate train acc
         acc1, _ = accuracy(output, target, topk=(1, 4))
 
