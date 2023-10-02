@@ -862,6 +862,8 @@ def train_epoch(
 
         print("shapes", output.shape, target.shape)
         # calculate train acc
+        if isinstance(output, (tuple, list)):
+            output = output[0]
         acc1, _ = accuracy(output, target, topk=(1, 4))
 
         if args.distributed:
