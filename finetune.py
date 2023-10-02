@@ -132,7 +132,7 @@ parser.add_argument('--no-aug', action='store_true', default=False,
                     help='Disable all training augmentation, override other train aug args')
 parser.add_argument('--scale', type=float, nargs='+', default=[0.08, 1.0], metavar='PCT',
                     help='Random resize scale (default: 0.08 1.0)')
-parser.add_argument('--ratio', type=float, nargs='+', default=[3./4., 4./3.], metavar='RATIO',
+parser.add_argument('--ratio', type=float, nargs='+', default=[3. / 4., 4. / 3.], metavar='RATIO',
                     help='Random resize aspect ratio (default: 0.75 1.33)')
 parser.add_argument('--hflip', type=float, default=0.5,
                     help='Horizontal flip training aug probability')
@@ -262,6 +262,7 @@ try:
 except AttributeError:
     pass
 
+
 def _parse_args():
     # Do we have a config file to parse?
     args_config, remaining = config_parser.parse_known_args()
@@ -277,6 +278,7 @@ def _parse_args():
     # Cache the args as a text string to save them in the output dir later
     args_text = yaml.safe_dump(args.__dict__, default_flow_style=False)
     return args, args_text
+
 
 def load_checkpoint(args, model, checkpoint_path, use_ema=False):
     if checkpoint_path and os.path.isfile(checkpoint_path):
@@ -320,8 +322,8 @@ def load_checkpoint(args, model, checkpoint_path, use_ema=False):
     miss_dic = [k for k, v in pretrained_dict.items() if not (k in model_dict)]
     unexpect_dic = [k for k, v in model_dict.items() if not (k in pretrained_dict)]
     if args.local_rank == 0:
-        print ("Miss Keys:", miss_dic)
-        print ("Ubexpected Keys:", unexpect_dic)
+        print("Miss Keys:", miss_dic)
+        print("Ubexpected Keys:", unexpect_dic)
     model_dict.update(loaded_dict)
     model.load_state_dict(model_dict, strict=True)
 
@@ -357,9 +359,9 @@ def create_optimizer(args, parameters, filter_bias_and_bn=True):
         optimizer = Nadam(parameters, **opt_args)
     elif opt_lower == 'radam':
         optimizer = RAdam(parameters, **opt_args)
-    elif opt_lower == 'adamp':        
+    elif opt_lower == 'adamp':
         optimizer = AdamP(parameters, wd_ratio=0.01, nesterov=True, **opt_args)
-    elif opt_lower == 'sgdp':        
+    elif opt_lower == 'sgdp':
         optimizer = SGDP(parameters, momentum=args.momentum, nesterov=True, **opt_args)
     elif opt_lower == 'adadelta':
         optimizer = optim.Adadelta(parameters, **opt_args)
@@ -401,6 +403,7 @@ def create_optimizer(args, parameters, filter_bias_and_bn=True):
             optimizer = Lookahead(optimizer)
 
     return optimizer
+
 
 def main():
     setup_default_logging()
@@ -492,7 +495,6 @@ def main():
         if args.channels_last:
             model = model.to(memory_format=torch.channels_last)
 
-
         # optionally resume from a checkpoint
     resume_epoch = None
     if args.resume:
@@ -505,7 +507,7 @@ def main():
                 base_para.append(para)
         parameters = [{'params': base_para, 'lr': args.lr_scale * args.lr},
                       {'params': head_para}]
-        
+
         optimizer = create_optimizer(args, parameters)
 
         resume_epoch = resume_checkpoint(
@@ -519,13 +521,13 @@ def main():
     if args.model_ema:
         # Important to create EMA model after cuda(), DP wrapper, and AMP but before SyncBN and DDP wrapper
         if args.local_rank == 0:
-            print ("Use EMA with decay:", args.model_ema_decay)
+            print("Use EMA with decay:", args.model_ema_decay)
         model_ema = ModelEma(
             model,
             decay=args.model_ema_decay,
             device='cpu' if args.model_ema_force_cpu else '',
             resume=args.resume)
-    
+
     head_para = []
     base_para = []
     if not args.resume:
@@ -536,9 +538,9 @@ def main():
                 base_para.append(para)
         parameters = [{'params': base_para, 'lr': args.lr_scale * args.lr},
                       {'params': head_para}]
-        
+
         optimizer = create_optimizer(args, parameters)
-    
+
     amp_autocast = suppress  # do nothing
     loss_scaler = None
     if use_amp == 'apex':
@@ -554,7 +556,6 @@ def main():
     else:
         if args.local_rank == 0:
             _logger.info('AMP not enabled. Training in float32.')
-
 
     if args.distributed:
         if args.sync_bn:
@@ -579,7 +580,8 @@ def main():
         else:
             if args.local_rank == 0:
                 _logger.info("Using native Torch DistributedDataParallel.")
-            model = NativeDDP(model, device_ids=[args.local_rank], find_unused_parameters=False)  # can use device str in Torch >= 1.1
+            model = NativeDDP(model, device_ids=[args.local_rank],
+                              find_unused_parameters=False)  # can use device str in Torch >= 1.1
         # NOTE: EMA model does not need to be wrapped by DDP
 
     lr_scheduler, num_epochs = create_scheduler(args, optimizer)
@@ -690,7 +692,7 @@ def main():
     best_metric = None
     best_epoch = None
     best_model = None
-    
+
     if args.eval_checkpoint:  # evaluate the model
         load_checkpoint(model, args.eval_checkpoint, args.model_ema)
         val_metrics = validate(model, loader_eval, validate_loss_fn, args)
@@ -752,7 +754,6 @@ def main():
     except KeyboardInterrupt:
         pass
 
-    
     if best_metric is not None:
         _logger.info('*** Best metric: {0} (epoch {1})'.format(best_metric, best_epoch))
 
@@ -801,7 +802,6 @@ def main():
                     output = output.unfold(0, reduce_factor, reduce_factor).mean(dim=2)
                     target = target[0:target.size(0):reduce_factor]
 
-
                 if args.distributed:
                     acc1 = reduce_tensor(acc1, args.world_size)
                     acc5 = reduce_tensor(acc5, args.world_size)
@@ -821,10 +821,6 @@ def main():
                 all_pred.extend(predictions)
                 all_truth.extend(labels)
         m.evaluate(all_truth, all_pred)
-
-
-
-
 
 
 def train_epoch(
@@ -863,11 +859,22 @@ def train_epoch(
             output = model(input)
             loss = loss_fn(output, target)
 
+        # calculate train acc
+        acc1, _ = accuracy(output, target, topk=(1, 4))
+
+        if args.distributed:
+            acc1 = reduce_tensor(acc1, args.world_size)
+
+        torch.cuda.synchronize()
+
+        top1_m.update(acc1.item(), output.size(0))
+
+
         if not args.distributed:
             losses_m.update(loss.item(), input.size(0))
 
-        #torch.cuda.synchronize()
-        #end = time.time()
+        # torch.cuda.synchronize()
+        # end = time.time()
         optimizer.zero_grad()
         if loss_scaler is not None:
             loss_scaler(
@@ -930,7 +937,7 @@ def train_epoch(
     if hasattr(optimizer, 'sync_lookahead'):
         optimizer.sync_lookahead()
 
-    return OrderedDict([('loss', losses_m.avg)])
+    return OrderedDict([('loss', losses_m.avg), ("train_top1", top1_m.avg)])
 
 
 def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix=''):
@@ -938,7 +945,6 @@ def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix='')
     losses_m = AverageMeter()
     top1_m = AverageMeter()
     top5_m = AverageMeter()
-
 
     model.eval()
 
@@ -979,15 +985,6 @@ def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix='')
                 reduced_loss = loss.data
 
             torch.cuda.synchronize()
-
-            # print("output", tmp_out.cpu().numpy().shape)
-            # print("target", tmp_tar.cpu().numpy().shape)
-            # print()
-            # predictions = tmp_out.cpu().numpy().argmax(axis=1).tolist()
-            # labels = tmp_tar.cpu().numpy().tolist()
-            # m = Metrics("CSWin", ["1", "2", "3", "4"])
-            # m.evaluate(labels, predictions)
-
 
             losses_m.update(reduced_loss.item(), input.size(0))
             top1_m.update(acc1.item(), output.size(0))
