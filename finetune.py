@@ -864,6 +864,8 @@ def train_epoch(
         # calculate train acc
         if isinstance(output, (tuple, list)):
             output = output[0]
+        output = output.reshape(1, -1)
+        target = target.reshape(1, -1)
         acc1, _ = accuracy(output, target, topk=(1, 4))
 
         if args.distributed:
