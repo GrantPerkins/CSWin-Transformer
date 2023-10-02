@@ -867,6 +867,7 @@ def train_epoch(
             output = output[0]
         output = output.argmax(axis=1).cpu().numpy()
         target = target.argmax(axis=1).cpu().numpy()
+        print(output.shape, "expected=64")
         acc1 = accuracy_score(target, output)
 
         torch.cuda.synchronize()
