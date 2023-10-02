@@ -864,10 +864,10 @@ def train_epoch(
         # calculate train acc
         if isinstance(output, (tuple, list)):
             output = output[0]
-        output = output.reshape(-1)
-        target = target.reshape(1, -1)
+        # output = output.reshape(-1)
+        # target = target.reshape(1, -1)
         print("shapes", output.shape, target.shape)
-        acc1, _ = accuracy(output, target, topk=(1, 4))
+        acc1 = accuracy(output, target)[0]
 
         if args.distributed:
             acc1 = reduce_tensor(acc1, args.world_size)
