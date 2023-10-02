@@ -31,6 +31,7 @@ from checkpoint_saver import CheckpointSaver
 from labeled_memcached_dataset import McDataset
 import torch.optim as optim
 from metrics import Metrics
+from sklearn.metrics import accuracy_score
 
 torch.backends.cudnn.benchmark = True
 _logger = logging.getLogger('train')
@@ -864,17 +865,13 @@ def train_epoch(
         # calculate train acc
         if isinstance(output, (tuple, list)):
             output = output[0]
-        # output = output.reshape(-1)
-        # target = target.reshape(1, -1)
-        print("shapes", output.shape, target.shape)
-        acc1 = accuracy(output, target)[0]
-
-        if args.distributed:
-            acc1 = reduce_tensor(acc1, args.world_size)
+        output = output.argmax(axis=1).cpu().numpy()
+        target = target.argmax(axis=1).cpu().numpy()
+        acc1 = accuracy_score(target, output)
 
         torch.cuda.synchronize()
 
-        top1_m.update(acc1.item(), output.size(0))
+        top1_m.update(acc1, len(output))
 
 
         if not args.distributed:
