@@ -867,7 +867,6 @@ def train_epoch(
             output = output[0]
         output = output.argmax(axis=1).cpu().numpy()
         target = target.argmax(axis=1).cpu().numpy()
-        print(output.shape, "expected=64")
         acc1 = accuracy_score(target, output)
 
         torch.cuda.synchronize()
@@ -908,6 +907,7 @@ def train_epoch(
                 _logger.info(
                     'Train:{} [{:>4d}/{} ({:>3.0f}%)]  '
                     'Loss:{loss.val:>9.6f} ({loss.avg:>6.4f})  '
+                    'Acc@1: {top1.val:>7.4f} ({top1.avg:>7.4f})  '
                     'Time:'
                     '({batch_time.avg:.3f}s, {rate_avg:>7.2f}/s)  '
                     'LR:{lr1:.3e} {lr2:.3e} '
@@ -916,6 +916,7 @@ def train_epoch(
                         batch_idx, len(loader),
                         100. * batch_idx / last_idx,
                         loss=losses_m,
+                        top1=top1_m,
                         batch_time=batch_time_m,
                         rate=input.size(0) * args.world_size / batch_time_m.val,
                         rate_avg=input.size(0) * args.world_size / batch_time_m.avg,
