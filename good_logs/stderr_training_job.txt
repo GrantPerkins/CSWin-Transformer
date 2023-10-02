@@ -1,0 +1,1182 @@
+Training with a single process on 1 GPUs.
+Model CSWin_64_12211_tiny_224 created, param count: 21809604
+Data processing configuration for current model + dataset:
+	input_size: (3, 224, 224)
+	interpolation: bicubic
+	mean: (0.485, 0.456, 0.406)
+	std: (0.229, 0.224, 0.225)
+	crop_pct: 0.9
+Loaded state_dict_ema from checkpoint '/home/gcperkins/CSWin-Transformer/cswin_tiny_224.pth'
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/apex/__init__.py:68: DeprecatedFeatureWarning: apex.amp is deprecated and will be removed by the end of February 2023. Use [PyTorch AMP](https://pytorch.org/docs/stable/amp.html)
+  warnings.warn(msg, DeprecatedFeatureWarning)
+Using NVIDIA APEX AMP. Training in mixed precision.
+Scheduled epochs: 60
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/transforms.py:330: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:0 [   0/10 (  0%)]  Loss: 1.407860 (1.4079)  Time:(4.185s,   15.29/s)  LR:1.250e-05 2.500e-04 Data:(0.765)
+Train:0 [   9/10 (100%)]  Loss: 1.282741 (1.3380)  Time:(0.778s,   82.29/s)  LR:1.250e-05 2.500e-04 Data:(0.867)
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torch/utils/checkpoint.py:31: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn("None of the inputs have requires_grad=True. Gradients will be None")
+Test: [   0/3]  Time: 0.885 (0.885)  Loss:  1.4458 (1.4458)  Acc@1: 20.3125 (20.3125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.450 (0.400)  Loss:  1.2024 (1.2613)  Acc@1: 51.8519 (49.3151)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.810 (0.810)  Loss:  1.4096 (1.4096)  Acc@1: 28.1250 (28.1250)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.125 (0.292)  Loss:  1.4675 (1.4027)  Acc@1: 11.1111 (27.3973)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-0.pth.tar', 1.4026935329175976)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:1 [   0/10 (  0%)]  Loss: 1.326048 (1.3260)  Time:(1.317s,   48.59/s)  LR:1.249e-05 2.498e-04 Data:(0.905)
+Train:1 [   9/10 (100%)]  Loss: 1.269941 (1.2869)  Time:(0.478s,  134.00/s)  LR:1.249e-05 2.498e-04 Data:(1.014)
+Test: [   0/3]  Time: 0.768 (0.768)  Loss:  1.3654 (1.3654)  Acc@1: 29.6875 (29.6875)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.132 (0.287)  Loss:  1.0159 (1.1500)  Acc@1: 66.6667 (55.7078)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.883 (0.883)  Loss:  1.4096 (1.4096)  Acc@1: 28.1250 (28.1250)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.125 (0.315)  Loss:  1.4659 (1.4018)  Acc@1: 11.1111 (27.3973)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-1.pth.tar', 1.4017884284938307)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-0.pth.tar', 1.4026935329175976)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:2 [   0/10 (  0%)]  Loss: 1.250915 (1.2509)  Time:(1.191s,   53.76/s)  LR:1.245e-05 2.490e-04 Data:(0.809)
+Train:2 [   9/10 (100%)]  Loss: 1.297721 (1.1856)  Time:(0.475s,  134.79/s)  LR:1.245e-05 2.490e-04 Data:(0.922)
+Test: [   0/3]  Time: 0.878 (0.878)  Loss:  1.1514 (1.1514)  Acc@1: 48.4375 (48.4375)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.129 (0.313)  Loss:  0.8734 (1.0193)  Acc@1: 77.7778 (63.0137)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.872 (0.872)  Loss:  1.4091 (1.4091)  Acc@1: 28.1250 (28.1250)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.125 (0.312)  Loss:  1.4637 (1.4005)  Acc@1: 11.1111 (27.3973)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-2.pth.tar', 1.4004748270391874)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-1.pth.tar', 1.4017884284938307)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-0.pth.tar', 1.4026935329175976)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:3 [   0/10 (  0%)]  Loss: 1.227071 (1.2271)  Time:(1.226s,   52.21/s)  LR:1.239e-05 2.478e-04 Data:(0.843)
+Train:3 [   9/10 (100%)]  Loss: 1.037008 (1.0529)  Time:(0.466s,  137.22/s)  LR:1.239e-05 2.478e-04 Data:(0.953)
+Test: [   0/3]  Time: 0.846 (0.846)  Loss:  0.9521 (0.9521)  Acc@1: 65.6250 (65.6250)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.130 (0.307)  Loss:  0.7289 (0.8855)  Acc@1: 81.4815 (67.1233)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.902 (0.902)  Loss:  1.4082 (1.4082)  Acc@1: 28.1250 (28.1250)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.130 (0.319)  Loss:  1.4612 (1.3988)  Acc@1: 11.1111 (27.8539)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-3.pth.tar', 1.3987793574050136)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-2.pth.tar', 1.4004748270391874)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-1.pth.tar', 1.4017884284938307)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-0.pth.tar', 1.4026935329175976)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:4 [   0/10 (  0%)]  Loss: 1.222267 (1.2223)  Time:(1.319s,   48.52/s)  LR:1.231e-05 2.461e-04 Data:(0.938)
+Train:4 [   9/10 (100%)]  Loss: 0.880218 (0.9974)  Time:(0.476s,  134.50/s)  LR:1.231e-05 2.461e-04 Data:(1.051)
+Test: [   0/3]  Time: 0.855 (0.855)  Loss:  0.8802 (0.8802)  Acc@1: 68.7500 (68.7500)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.126 (0.307)  Loss:  0.6203 (0.7982)  Acc@1: 81.4815 (69.4064)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.891 (0.891)  Loss:  1.4070 (1.4070)  Acc@1: 26.5625 (26.5625)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.124 (0.317)  Loss:  1.4582 (1.3968)  Acc@1: 11.1111 (27.3973)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-4.pth.tar', 1.3967953343369646)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-3.pth.tar', 1.3987793574050136)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-2.pth.tar', 1.4004748270391874)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-1.pth.tar', 1.4017884284938307)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-0.pth.tar', 1.4026935329175976)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:5 [   0/10 (  0%)]  Loss: 1.029704 (1.0297)  Time:(1.189s,   53.83/s)  LR:1.221e-05 2.439e-04 Data:(0.807)
+Train:5 [   9/10 (100%)]  Loss: 0.900324 (0.9861)  Time:(0.466s,  137.35/s)  LR:1.221e-05 2.439e-04 Data:(0.920)
+Test: [   0/3]  Time: 0.856 (0.856)  Loss:  0.7322 (0.7322)  Acc@1: 73.4375 (73.4375)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.124 (0.307)  Loss:  0.5907 (0.7211)  Acc@1: 77.7778 (71.2329)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.668 (0.668)  Loss:  1.4055 (1.4055)  Acc@1: 26.5625 (26.5625)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.128 (0.261)  Loss:  1.4554 (1.3945)  Acc@1: 11.1111 (27.3973)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-5.pth.tar', 1.3945250081145055)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-4.pth.tar', 1.3967953343369646)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-3.pth.tar', 1.3987793574050136)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-2.pth.tar', 1.4004748270391874)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-1.pth.tar', 1.4017884284938307)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-0.pth.tar', 1.4026935329175976)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:6 [   0/10 (  0%)]  Loss: 0.911709 (0.9117)  Time:(1.345s,   47.58/s)  LR:1.208e-05 2.412e-04 Data:(0.958)
+Train:6 [   9/10 (100%)]  Loss: 0.940958 (0.9209)  Time:(0.482s,  132.86/s)  LR:1.208e-05 2.412e-04 Data:(1.071)
+Test: [   0/3]  Time: 0.829 (0.829)  Loss:  0.7069 (0.7069)  Acc@1: 76.5625 (76.5625)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.128 (0.302)  Loss:  0.5417 (0.6893)  Acc@1: 81.4815 (72.6027)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.847 (0.847)  Loss:  1.4041 (1.4041)  Acc@1: 25.0000 (25.0000)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.125 (0.306)  Loss:  1.4524 (1.3921)  Acc@1: 11.1111 (26.9406)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-6.pth.tar', 1.3921062200581102)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-5.pth.tar', 1.3945250081145055)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-4.pth.tar', 1.3967953343369646)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-3.pth.tar', 1.3987793574050136)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-2.pth.tar', 1.4004748270391874)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-1.pth.tar', 1.4017884284938307)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-0.pth.tar', 1.4026935329175976)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:7 [   0/10 (  0%)]  Loss: 0.770003 (0.7700)  Time:(1.450s,   44.14/s)  LR:1.193e-05 2.381e-04 Data:(0.934)
+Train:7 [   9/10 (100%)]  Loss: 0.872720 (0.8593)  Time:(0.491s,  130.41/s)  LR:1.193e-05 2.381e-04 Data:(1.050)
+Test: [   0/3]  Time: 0.699 (0.699)  Loss:  0.6699 (0.6699)  Acc@1: 76.5625 (76.5625)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.131 (0.271)  Loss:  0.5252 (0.6659)  Acc@1: 81.4815 (72.1461)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.859 (0.859)  Loss:  1.4024 (1.4024)  Acc@1: 25.0000 (25.0000)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.128 (0.312)  Loss:  1.4494 (1.3896)  Acc@1: 14.8148 (27.3973)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-7.pth.tar', 1.3895836420799499)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-6.pth.tar', 1.3921062200581102)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-5.pth.tar', 1.3945250081145055)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-4.pth.tar', 1.3967953343369646)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-3.pth.tar', 1.3987793574050136)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-2.pth.tar', 1.4004748270391874)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-1.pth.tar', 1.4017884284938307)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-0.pth.tar', 1.4026935329175976)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:8 [   0/10 (  0%)]  Loss: 0.870642 (0.8706)  Time:(1.155s,   55.39/s)  LR:1.176e-05 2.346e-04 Data:(0.773)
+Train:8 [   9/10 (100%)]  Loss: 0.823139 (0.9024)  Time:(0.462s,  138.44/s)  LR:1.176e-05 2.346e-04 Data:(0.880)
+Test: [   0/3]  Time: 1.000 (1.000)  Loss:  0.6436 (0.6436)  Acc@1: 75.0000 (75.0000)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.129 (0.345)  Loss:  0.4966 (0.6477)  Acc@1: 81.4815 (72.6027)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.954 (0.954)  Loss:  1.4008 (1.4008)  Acc@1: 25.0000 (25.0000)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.126 (0.333)  Loss:  1.4460 (1.3870)  Acc@1: 18.5185 (28.3105)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-8.pth.tar', 1.3869662905392581)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-7.pth.tar', 1.3895836420799499)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-6.pth.tar', 1.3921062200581102)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-5.pth.tar', 1.3945250081145055)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-4.pth.tar', 1.3967953343369646)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-3.pth.tar', 1.3987793574050136)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-2.pth.tar', 1.4004748270391874)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-1.pth.tar', 1.4017884284938307)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-0.pth.tar', 1.4026935329175976)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:9 [   0/10 (  0%)]  Loss: 1.119830 (1.1198)  Time:(1.244s,   51.45/s)  LR:1.157e-05 2.306e-04 Data:(0.861)
+Train:9 [   9/10 (100%)]  Loss: 0.760137 (0.9222)  Time:(0.480s,  133.46/s)  LR:1.157e-05 2.306e-04 Data:(0.974)
+Test: [   0/3]  Time: 0.819 (0.819)  Loss:  0.5442 (0.5442)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.123 (0.297)  Loss:  0.6091 (0.6108)  Acc@1: 77.7778 (73.5160)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.869 (0.869)  Loss:  1.3989 (1.3989)  Acc@1: 25.0000 (25.0000)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.130 (0.311)  Loss:  1.4429 (1.3843)  Acc@1: 18.5185 (28.3105)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-9.pth.tar', 1.3842673933124978)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-8.pth.tar', 1.3869662905392581)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-7.pth.tar', 1.3895836420799499)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-6.pth.tar', 1.3921062200581102)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-5.pth.tar', 1.3945250081145055)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-4.pth.tar', 1.3967953343369646)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-3.pth.tar', 1.3987793574050136)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-2.pth.tar', 1.4004748270391874)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-1.pth.tar', 1.4017884284938307)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-0.pth.tar', 1.4026935329175976)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:10 [   0/10 (  0%)]  Loss: 0.828431 (0.8284)  Time:(1.438s,   44.50/s)  LR:1.135e-05 2.262e-04 Data:(1.055)
+Train:10 [   9/10 (100%)]  Loss: 1.134069 (0.9068)  Time:(0.488s,  131.08/s)  LR:1.135e-05 2.262e-04 Data:(1.167)
+Test: [   0/3]  Time: 0.755 (0.755)  Loss:  0.6060 (0.6060)  Acc@1: 78.1250 (78.1250)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.129 (0.283)  Loss:  0.5198 (0.6154)  Acc@1: 81.4815 (74.4292)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.886 (0.886)  Loss:  1.3971 (1.3971)  Acc@1: 26.5625 (26.5625)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.124 (0.315)  Loss:  1.4397 (1.3816)  Acc@1: 18.5185 (28.7671)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-10.pth.tar', 1.3815774139203982)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-9.pth.tar', 1.3842673933124978)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-8.pth.tar', 1.3869662905392581)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-7.pth.tar', 1.3895836420799499)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-6.pth.tar', 1.3921062200581102)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-5.pth.tar', 1.3945250081145055)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-4.pth.tar', 1.3967953343369646)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-3.pth.tar', 1.3987793574050136)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-2.pth.tar', 1.4004748270391874)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-1.pth.tar', 1.4017884284938307)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:11 [   0/10 (  0%)]  Loss: 0.785894 (0.7859)  Time:(1.392s,   45.97/s)  LR:1.112e-05 2.214e-04 Data:(1.010)
+Train:11 [   9/10 (100%)]  Loss: 0.781381 (0.8827)  Time:(0.495s,  129.18/s)  LR:1.112e-05 2.214e-04 Data:(1.128)
+Test: [   0/3]  Time: 0.729 (0.729)  Loss:  0.5338 (0.5338)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.126 (0.276)  Loss:  0.5474 (0.5908)  Acc@1: 81.4815 (75.7991)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.916 (0.916)  Loss:  1.3952 (1.3952)  Acc@1: 26.5625 (26.5625)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.132 (0.324)  Loss:  1.4366 (1.3789)  Acc@1: 18.5185 (29.2237)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-11.pth.tar', 1.3788792504567533)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-10.pth.tar', 1.3815774139203982)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-9.pth.tar', 1.3842673933124978)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-8.pth.tar', 1.3869662905392581)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-7.pth.tar', 1.3895836420799499)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-6.pth.tar', 1.3921062200581102)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-5.pth.tar', 1.3945250081145055)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-4.pth.tar', 1.3967953343369646)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-3.pth.tar', 1.3987793574050136)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-2.pth.tar', 1.4004748270391874)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:12 [   0/10 (  0%)]  Loss: 0.789825 (0.7898)  Time:(1.431s,   44.73/s)  LR:1.087e-05 2.162e-04 Data:(1.046)
+Train:12 [   9/10 (100%)]  Loss: 0.754924 (0.8919)  Time:(0.489s,  130.91/s)  LR:1.087e-05 2.162e-04 Data:(1.158)
+Test: [   0/3]  Time: 0.709 (0.709)  Loss:  0.5443 (0.5443)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.125 (0.271)  Loss:  0.5568 (0.5842)  Acc@1: 81.4815 (75.7991)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.893 (0.893)  Loss:  1.3933 (1.3933)  Acc@1: 29.6875 (29.6875)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.128 (0.317)  Loss:  1.4335 (1.3761)  Acc@1: 18.5185 (30.5936)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-12.pth.tar', 1.3761460487156698)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-11.pth.tar', 1.3788792504567533)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-10.pth.tar', 1.3815774139203982)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-9.pth.tar', 1.3842673933124978)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-8.pth.tar', 1.3869662905392581)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-7.pth.tar', 1.3895836420799499)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-6.pth.tar', 1.3921062200581102)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-5.pth.tar', 1.3945250081145055)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-4.pth.tar', 1.3967953343369646)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-3.pth.tar', 1.3987793574050136)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:13 [   0/10 (  0%)]  Loss: 0.836754 (0.8368)  Time:(1.243s,   51.48/s)  LR:1.061e-05 2.106e-04 Data:(0.858)
+Train:13 [   9/10 (100%)]  Loss: 0.770899 (0.9573)  Time:(0.472s,  135.71/s)  LR:1.061e-05 2.106e-04 Data:(0.968)
+Test: [   0/3]  Time: 0.811 (0.811)  Loss:  0.4608 (0.4608)  Acc@1: 81.2500 (81.2500)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.127 (0.296)  Loss:  0.6223 (0.5679)  Acc@1: 77.7778 (73.5160)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.885 (0.885)  Loss:  1.3913 (1.3913)  Acc@1: 29.6875 (29.6875)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.123 (0.315)  Loss:  1.4305 (1.3734)  Acc@1: 18.5185 (31.5068)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-13.pth.tar', 1.3733618172336386)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-12.pth.tar', 1.3761460487156698)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-11.pth.tar', 1.3788792504567533)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-10.pth.tar', 1.3815774139203982)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-9.pth.tar', 1.3842673933124978)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-8.pth.tar', 1.3869662905392581)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-7.pth.tar', 1.3895836420799499)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-6.pth.tar', 1.3921062200581102)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-5.pth.tar', 1.3945250081145055)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-4.pth.tar', 1.3967953343369646)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:14 [   0/10 (  0%)]  Loss: 1.145869 (1.1459)  Time:(1.312s,   48.78/s)  LR:1.032e-05 2.048e-04 Data:(0.928)
+Train:14 [   9/10 (100%)]  Loss: 1.083900 (0.9130)  Time:(0.477s,  134.16/s)  LR:1.032e-05 2.048e-04 Data:(1.040)
+Test: [   0/3]  Time: 0.746 (0.746)  Loss:  0.5328 (0.5328)  Acc@1: 81.2500 (81.2500)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.127 (0.280)  Loss:  0.5502 (0.5686)  Acc@1: 81.4815 (75.7991)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.818 (0.818)  Loss:  1.3894 (1.3894)  Acc@1: 29.6875 (29.6875)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.126 (0.297)  Loss:  1.4275 (1.3706)  Acc@1: 22.2222 (31.9635)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-14.pth.tar', 1.3706184337128242)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-13.pth.tar', 1.3733618172336386)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-12.pth.tar', 1.3761460487156698)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-11.pth.tar', 1.3788792504567533)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-10.pth.tar', 1.3815774139203982)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-9.pth.tar', 1.3842673933124978)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-8.pth.tar', 1.3869662905392581)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-7.pth.tar', 1.3895836420799499)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-6.pth.tar', 1.3921062200581102)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-5.pth.tar', 1.3945250081145055)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:15 [   0/10 (  0%)]  Loss: 0.973846 (0.9738)  Time:(1.326s,   48.25/s)  LR:1.003e-05 1.986e-04 Data:(0.944)
+Train:15 [   9/10 (100%)]  Loss: 0.798758 (0.8352)  Time:(0.479s,  133.53/s)  LR:1.003e-05 1.986e-04 Data:(1.056)
+Test: [   0/3]  Time: 0.878 (0.878)  Loss:  0.4848 (0.4848)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.131 (0.314)  Loss:  0.5908 (0.5559)  Acc@1: 81.4815 (76.2557)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.933 (0.933)  Loss:  1.3875 (1.3875)  Acc@1: 29.6875 (29.6875)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.126 (0.327)  Loss:  1.4243 (1.3678)  Acc@1: 22.2222 (31.9635)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-15.pth.tar', 1.3678169996226759)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-14.pth.tar', 1.3706184337128242)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-13.pth.tar', 1.3733618172336386)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-12.pth.tar', 1.3761460487156698)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-11.pth.tar', 1.3788792504567533)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-10.pth.tar', 1.3815774139203982)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-9.pth.tar', 1.3842673933124978)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-8.pth.tar', 1.3869662905392581)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-7.pth.tar', 1.3895836420799499)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-6.pth.tar', 1.3921062200581102)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:16 [   0/10 (  0%)]  Loss: 0.873232 (0.8732)  Time:(1.218s,   52.56/s)  LR:9.715e-06 1.921e-04 Data:(0.835)
+Train:16 [   9/10 (100%)]  Loss: 1.170274 (0.8895)  Time:(0.467s,  137.05/s)  LR:9.715e-06 1.921e-04 Data:(0.946)
+Test: [   0/3]  Time: 0.822 (0.822)  Loss:  0.4556 (0.4556)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.129 (0.299)  Loss:  0.7112 (0.5518)  Acc@1: 74.0741 (77.1689)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.900 (0.900)  Loss:  1.3854 (1.3854)  Acc@1: 31.2500 (31.2500)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.131 (0.319)  Loss:  1.4214 (1.3650)  Acc@1: 22.2222 (32.4201)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-16.pth.tar', 1.3649571186875644)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-15.pth.tar', 1.3678169996226759)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-14.pth.tar', 1.3706184337128242)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-13.pth.tar', 1.3733618172336386)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-12.pth.tar', 1.3761460487156698)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-11.pth.tar', 1.3788792504567533)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-10.pth.tar', 1.3815774139203982)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-9.pth.tar', 1.3842673933124978)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-8.pth.tar', 1.3869662905392581)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-7.pth.tar', 1.3895836420799499)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:17 [   0/10 (  0%)]  Loss: 0.711764 (0.7118)  Time:(1.322s,   48.39/s)  LR:9.391e-06 1.853e-04 Data:(0.939)
+Train:17 [   9/10 (100%)]  Loss: 0.695623 (0.8363)  Time:(0.479s,  133.62/s)  LR:9.391e-06 1.853e-04 Data:(1.065)
+Test: [   0/3]  Time: 0.819 (0.819)  Loss:  0.5512 (0.5512)  Acc@1: 81.2500 (81.2500)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.132 (0.299)  Loss:  0.4987 (0.5611)  Acc@1: 88.8889 (76.2557)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.910 (0.910)  Loss:  1.3834 (1.3834)  Acc@1: 31.2500 (31.2500)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.125 (0.322)  Loss:  1.4185 (1.3622)  Acc@1: 22.2222 (33.3333)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-17.pth.tar', 1.3621710860021583)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-16.pth.tar', 1.3649571186875644)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-15.pth.tar', 1.3678169996226759)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-14.pth.tar', 1.3706184337128242)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-13.pth.tar', 1.3733618172336386)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-12.pth.tar', 1.3761460487156698)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-11.pth.tar', 1.3788792504567533)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-10.pth.tar', 1.3815774139203982)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-9.pth.tar', 1.3842673933124978)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-8.pth.tar', 1.3869662905392581)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:18 [   0/10 (  0%)]  Loss: 0.984343 (0.9843)  Time:(1.163s,   55.02/s)  LR:9.055e-06 1.784e-04 Data:(0.780)
+Train:18 [   9/10 (100%)]  Loss: 0.710989 (0.8980)  Time:(0.462s,  138.54/s)  LR:9.055e-06 1.784e-04 Data:(0.895)
+Test: [   0/3]  Time: 0.865 (0.865)  Loss:  0.4961 (0.4961)  Acc@1: 81.2500 (81.2500)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.128 (0.311)  Loss:  0.5445 (0.5516)  Acc@1: 88.8889 (76.2557)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.783 (0.783)  Loss:  1.3815 (1.3815)  Acc@1: 31.2500 (31.2500)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.127 (0.291)  Loss:  1.4154 (1.3593)  Acc@1: 22.2222 (33.7900)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-18.pth.tar', 1.359311165330617)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-17.pth.tar', 1.3621710860021583)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-16.pth.tar', 1.3649571186875644)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-15.pth.tar', 1.3678169996226759)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-14.pth.tar', 1.3706184337128242)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-13.pth.tar', 1.3733618172336386)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-12.pth.tar', 1.3761460487156698)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-11.pth.tar', 1.3788792504567533)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-10.pth.tar', 1.3815774139203982)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-9.pth.tar', 1.3842673933124978)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:19 [   0/10 (  0%)]  Loss: 1.035981 (1.0360)  Time:(1.350s,   47.42/s)  LR:8.709e-06 1.712e-04 Data:(0.968)
+Train:19 [   9/10 (100%)]  Loss: 0.718948 (0.9618)  Time:(0.480s,  133.27/s)  LR:8.709e-06 1.712e-04 Data:(1.078)
+Test: [   0/3]  Time: 0.858 (0.858)  Loss:  0.4911 (0.4911)  Acc@1: 79.6875 (79.6875)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.126 (0.308)  Loss:  0.6959 (0.5530)  Acc@1: 74.0741 (75.3425)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.908 (0.908)  Loss:  1.3794 (1.3794)  Acc@1: 31.2500 (31.2500)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.129 (0.321)  Loss:  1.4125 (1.3564)  Acc@1: 22.2222 (34.2466)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-19.pth.tar', 1.3564469041345326)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-18.pth.tar', 1.359311165330617)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-17.pth.tar', 1.3621710860021583)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-16.pth.tar', 1.3649571186875644)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-15.pth.tar', 1.3678169996226759)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-14.pth.tar', 1.3706184337128242)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-13.pth.tar', 1.3733618172336386)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-12.pth.tar', 1.3761460487156698)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-11.pth.tar', 1.3788792504567533)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-10.pth.tar', 1.3815774139203982)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:20 [   0/10 (  0%)]  Loss: 1.103970 (1.1040)  Time:(1.409s,   45.43/s)  LR:8.354e-06 1.638e-04 Data:(1.025)
+Train:20 [   9/10 (100%)]  Loss: 1.069951 (0.9182)  Time:(0.487s,  131.36/s)  LR:8.354e-06 1.638e-04 Data:(1.147)
+Test: [   0/3]  Time: 0.945 (0.945)  Loss:  0.4705 (0.4705)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.132 (0.332)  Loss:  0.6628 (0.5489)  Acc@1: 77.7778 (76.2557)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.890 (0.890)  Loss:  1.3774 (1.3774)  Acc@1: 31.2500 (31.2500)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.130 (0.317)  Loss:  1.4098 (1.3536)  Acc@1: 22.2222 (34.2466)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-20.pth.tar', 1.3536182369815704)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-19.pth.tar', 1.3564469041345326)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-18.pth.tar', 1.359311165330617)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-17.pth.tar', 1.3621710860021583)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-16.pth.tar', 1.3649571186875644)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-15.pth.tar', 1.3678169996226759)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-14.pth.tar', 1.3706184337128242)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-13.pth.tar', 1.3733618172336386)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-12.pth.tar', 1.3761460487156698)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-11.pth.tar', 1.3788792504567533)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:21 [   0/10 (  0%)]  Loss: 0.782968 (0.7830)  Time:(1.281s,   49.96/s)  LR:7.992e-06 1.563e-04 Data:(0.895)
+Train:21 [   9/10 (100%)]  Loss: 0.731347 (0.8414)  Time:(0.473s,  135.30/s)  LR:7.992e-06 1.563e-04 Data:(1.005)
+Test: [   0/3]  Time: 0.837 (0.837)  Loss:  0.4519 (0.4519)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.132 (0.304)  Loss:  0.6247 (0.5414)  Acc@1: 88.8889 (76.2557)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.917 (0.917)  Loss:  1.3751 (1.3751)  Acc@1: 31.2500 (31.2500)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.126 (0.323)  Loss:  1.4069 (1.3508)  Acc@1: 22.2222 (34.2466)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-21.pth.tar', 1.3507503744674056)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-20.pth.tar', 1.3536182369815704)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-19.pth.tar', 1.3564469041345326)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-18.pth.tar', 1.359311165330617)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-17.pth.tar', 1.3621710860021583)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-16.pth.tar', 1.3649571186875644)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-15.pth.tar', 1.3678169996226759)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-14.pth.tar', 1.3706184337128242)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-13.pth.tar', 1.3733618172336386)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-12.pth.tar', 1.3761460487156698)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:22 [   0/10 (  0%)]  Loss: 0.722871 (0.7229)  Time:(1.333s,   48.02/s)  LR:7.624e-06 1.486e-04 Data:(0.950)
+Train:22 [   9/10 (100%)]  Loss: 0.764625 (0.8327)  Time:(0.478s,  133.77/s)  LR:7.624e-06 1.486e-04 Data:(1.060)
+Test: [   0/3]  Time: 0.807 (0.807)  Loss:  0.4869 (0.4869)  Acc@1: 81.2500 (81.2500)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.131 (0.298)  Loss:  0.5386 (0.5457)  Acc@1: 88.8889 (75.7991)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.924 (0.924)  Loss:  1.3730 (1.3730)  Acc@1: 31.2500 (31.2500)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.125 (0.323)  Loss:  1.4042 (1.3479)  Acc@1: 22.2222 (34.2466)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-22.pth.tar', 1.3478606090153733)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-21.pth.tar', 1.3507503744674056)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-20.pth.tar', 1.3536182369815704)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-19.pth.tar', 1.3564469041345326)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-18.pth.tar', 1.359311165330617)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-17.pth.tar', 1.3621710860021583)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-16.pth.tar', 1.3649571186875644)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-15.pth.tar', 1.3678169996226759)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-14.pth.tar', 1.3706184337128242)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-13.pth.tar', 1.3733618172336386)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:23 [   0/10 (  0%)]  Loss: 0.699444 (0.6994)  Time:(1.398s,   45.79/s)  LR:7.252e-06 1.409e-04 Data:(1.015)
+Train:23 [   9/10 (100%)]  Loss: 0.641156 (0.8302)  Time:(0.486s,  131.74/s)  LR:7.252e-06 1.409e-04 Data:(1.127)
+Test: [   0/3]  Time: 0.708 (0.708)  Loss:  0.4562 (0.4562)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.126 (0.270)  Loss:  0.5993 (0.5362)  Acc@1: 85.1852 (75.3425)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.810 (0.810)  Loss:  1.3707 (1.3707)  Acc@1: 31.2500 (31.2500)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.122 (0.295)  Loss:  1.4014 (1.3450)  Acc@1: 25.9259 (35.1598)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-23.pth.tar', 1.345014295077215)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-22.pth.tar', 1.3478606090153733)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-21.pth.tar', 1.3507503744674056)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-20.pth.tar', 1.3536182369815704)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-19.pth.tar', 1.3564469041345326)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-18.pth.tar', 1.359311165330617)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-17.pth.tar', 1.3621710860021583)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-16.pth.tar', 1.3649571186875644)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-15.pth.tar', 1.3678169996226759)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-14.pth.tar', 1.3706184337128242)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:24 [   0/10 (  0%)]  Loss: 0.729225 (0.7292)  Time:(1.259s,   50.84/s)  LR:6.877e-06 1.331e-04 Data:(0.876)
+Train:24 [   9/10 (100%)]  Loss: 0.693542 (0.8802)  Time:(0.471s,  135.74/s)  LR:6.877e-06 1.331e-04 Data:(0.989)
+Test: [   0/3]  Time: 0.806 (0.806)  Loss:  0.5129 (0.5129)  Acc@1: 81.2500 (81.2500)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.125 (0.294)  Loss:  0.5859 (0.5481)  Acc@1: 85.1852 (75.7991)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.713 (0.713)  Loss:  1.3685 (1.3685)  Acc@1: 31.2500 (31.2500)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.131 (0.274)  Loss:  1.3986 (1.3420)  Acc@1: 29.6296 (35.6164)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-24.pth.tar', 1.3420440530123776)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-23.pth.tar', 1.345014295077215)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-22.pth.tar', 1.3478606090153733)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-21.pth.tar', 1.3507503744674056)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-20.pth.tar', 1.3536182369815704)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-19.pth.tar', 1.3564469041345326)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-18.pth.tar', 1.359311165330617)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-17.pth.tar', 1.3621710860021583)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-16.pth.tar', 1.3649571186875644)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-15.pth.tar', 1.3678169996226759)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:25 [   0/10 (  0%)]  Loss: 0.759948 (0.7599)  Time:(1.210s,   52.88/s)  LR:6.500e-06 1.253e-04 Data:(0.829)
+Train:25 [   9/10 (100%)]  Loss: 0.776110 (0.7703)  Time:(0.468s,  136.78/s)  LR:6.500e-06 1.253e-04 Data:(0.940)
+Test: [   0/3]  Time: 0.818 (0.818)  Loss:  0.4784 (0.4784)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.126 (0.298)  Loss:  0.6005 (0.5332)  Acc@1: 81.4815 (75.7991)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.805 (0.805)  Loss:  1.3662 (1.3662)  Acc@1: 31.2500 (31.2500)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.129 (0.296)  Loss:  1.3958 (1.3391)  Acc@1: 29.6296 (37.4429)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-25.pth.tar', 1.3390789244272938)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-24.pth.tar', 1.3420440530123776)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-23.pth.tar', 1.345014295077215)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-22.pth.tar', 1.3478606090153733)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-21.pth.tar', 1.3507503744674056)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-20.pth.tar', 1.3536182369815704)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-19.pth.tar', 1.3564469041345326)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-18.pth.tar', 1.359311165330617)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-17.pth.tar', 1.3621710860021583)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-16.pth.tar', 1.3649571186875644)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:26 [   0/10 (  0%)]  Loss: 0.725927 (0.7259)  Time:(1.355s,   47.22/s)  LR:6.123e-06 1.174e-04 Data:(0.967)
+Train:26 [   9/10 (100%)]  Loss: 0.917714 (0.8509)  Time:(0.481s,  132.97/s)  LR:6.123e-06 1.174e-04 Data:(1.078)
+Test: [   0/3]  Time: 0.787 (0.787)  Loss:  0.4462 (0.4462)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.130 (0.291)  Loss:  0.5945 (0.5283)  Acc@1: 81.4815 (75.7991)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.968 (0.968)  Loss:  1.3637 (1.3637)  Acc@1: 31.2500 (31.2500)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.130 (0.336)  Loss:  1.3927 (1.3361)  Acc@1: 33.3333 (38.8128)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-26.pth.tar', 1.3360642428811826)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-25.pth.tar', 1.3390789244272938)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-24.pth.tar', 1.3420440530123776)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-23.pth.tar', 1.345014295077215)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-22.pth.tar', 1.3478606090153733)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-21.pth.tar', 1.3507503744674056)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-20.pth.tar', 1.3536182369815704)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-19.pth.tar', 1.3564469041345326)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-18.pth.tar', 1.359311165330617)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-17.pth.tar', 1.3621710860021583)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:27 [   0/10 (  0%)]  Loss: 0.643129 (0.6431)  Time:(1.285s,   49.82/s)  LR:5.748e-06 1.096e-04 Data:(0.901)
+Train:27 [   9/10 (100%)]  Loss: 1.044927 (0.8139)  Time:(0.475s,  134.79/s)  LR:5.748e-06 1.096e-04 Data:(1.012)
+Test: [   0/3]  Time: 0.862 (0.862)  Loss:  0.4288 (0.4288)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.129 (0.310)  Loss:  0.5216 (0.5318)  Acc@1: 88.8889 (76.7123)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.892 (0.892)  Loss:  1.3614 (1.3614)  Acc@1: 32.8125 (32.8125)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.127 (0.317)  Loss:  1.3898 (1.3331)  Acc@1: 33.3333 (39.7260)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-27.pth.tar', 1.3330739927074136)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-26.pth.tar', 1.3360642428811826)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-25.pth.tar', 1.3390789244272938)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-24.pth.tar', 1.3420440530123776)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-23.pth.tar', 1.345014295077215)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-22.pth.tar', 1.3478606090153733)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-21.pth.tar', 1.3507503744674056)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-20.pth.tar', 1.3536182369815704)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-19.pth.tar', 1.3564469041345326)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-18.pth.tar', 1.359311165330617)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:28 [   0/10 (  0%)]  Loss: 0.692135 (0.6921)  Time:(1.414s,   45.27/s)  LR:5.376e-06 1.019e-04 Data:(1.030)
+Train:28 [   9/10 (100%)]  Loss: 1.033846 (0.8804)  Time:(0.486s,  131.60/s)  LR:5.376e-06 1.019e-04 Data:(1.137)
+Test: [   0/3]  Time: 0.821 (0.821)  Loss:  0.4383 (0.4383)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.130 (0.300)  Loss:  0.6150 (0.5272)  Acc@1: 74.0741 (75.3425)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.898 (0.898)  Loss:  1.3588 (1.3588)  Acc@1: 32.8125 (32.8125)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.125 (0.318)  Loss:  1.3867 (1.3300)  Acc@1: 33.3333 (40.1826)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-28.pth.tar', 1.3300321396083048)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-27.pth.tar', 1.3330739927074136)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-26.pth.tar', 1.3360642428811826)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-25.pth.tar', 1.3390789244272938)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-24.pth.tar', 1.3420440530123776)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-23.pth.tar', 1.345014295077215)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-22.pth.tar', 1.3478606090153733)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-21.pth.tar', 1.3507503744674056)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-20.pth.tar', 1.3536182369815704)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-19.pth.tar', 1.3564469041345326)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:29 [   0/10 (  0%)]  Loss: 0.661760 (0.6618)  Time:(1.271s,   50.34/s)  LR:5.008e-06 9.423e-05 Data:(0.889)
+Train:29 [   9/10 (100%)]  Loss: 0.743723 (0.8171)  Time:(0.474s,  134.91/s)  LR:5.008e-06 9.423e-05 Data:(1.000)
+Test: [   0/3]  Time: 1.002 (1.002)  Loss:  0.4489 (0.4489)  Acc@1: 84.3750 (84.3750)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.130 (0.346)  Loss:  0.6554 (0.5222)  Acc@1: 70.3704 (76.2557)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.977 (0.977)  Loss:  1.3565 (1.3565)  Acc@1: 32.8125 (32.8125)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.126 (0.337)  Loss:  1.3837 (1.3270)  Acc@1: 33.3333 (40.1826)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-29.pth.tar', 1.3270195771570075)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-28.pth.tar', 1.3300321396083048)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-27.pth.tar', 1.3330739927074136)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-26.pth.tar', 1.3360642428811826)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-25.pth.tar', 1.3390789244272938)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-24.pth.tar', 1.3420440530123776)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-23.pth.tar', 1.345014295077215)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-22.pth.tar', 1.3478606090153733)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-21.pth.tar', 1.3507503744674056)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-20.pth.tar', 1.3536182369815704)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:30 [   0/10 (  0%)]  Loss: 0.665861 (0.6659)  Time:(1.172s,   54.62/s)  LR:4.646e-06 8.670e-05 Data:(0.789)
+Train:30 [   9/10 (100%)]  Loss: 1.154760 (0.8161)  Time:(0.461s,  138.82/s)  LR:4.646e-06 8.670e-05 Data:(0.895)
+Test: [   0/3]  Time: 0.877 (0.877)  Loss:  0.4375 (0.4375)  Acc@1: 84.3750 (84.3750)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.124 (0.313)  Loss:  0.5634 (0.5159)  Acc@1: 85.1852 (78.0822)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.891 (0.891)  Loss:  1.3541 (1.3541)  Acc@1: 32.8125 (32.8125)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.130 (0.320)  Loss:  1.3806 (1.3240)  Acc@1: 33.3333 (39.7260)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-30.pth.tar', 1.323963772216344)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-29.pth.tar', 1.3270195771570075)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-28.pth.tar', 1.3300321396083048)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-27.pth.tar', 1.3330739927074136)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-26.pth.tar', 1.3360642428811826)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-25.pth.tar', 1.3390789244272938)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-24.pth.tar', 1.3420440530123776)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-23.pth.tar', 1.345014295077215)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-22.pth.tar', 1.3478606090153733)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-21.pth.tar', 1.3507503744674056)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:31 [   0/10 (  0%)]  Loss: 0.899461 (0.8995)  Time:(1.324s,   48.35/s)  LR:4.291e-06 7.933e-05 Data:(0.938)
+Train:31 [   9/10 (100%)]  Loss: 0.701224 (0.8474)  Time:(0.479s,  133.62/s)  LR:4.291e-06 7.933e-05 Data:(1.049)
+Test: [   0/3]  Time: 0.814 (0.814)  Loss:  0.4297 (0.4297)  Acc@1: 84.3750 (84.3750)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.129 (0.300)  Loss:  0.6362 (0.5153)  Acc@1: 74.0741 (76.7123)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.809 (0.809)  Loss:  1.3516 (1.3516)  Acc@1: 32.8125 (32.8125)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.128 (0.298)  Loss:  1.3776 (1.3209)  Acc@1: 33.3333 (39.7260)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-31.pth.tar', 1.320904980511426)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-30.pth.tar', 1.323963772216344)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-29.pth.tar', 1.3270195771570075)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-28.pth.tar', 1.3300321396083048)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-27.pth.tar', 1.3330739927074136)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-26.pth.tar', 1.3360642428811826)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-25.pth.tar', 1.3390789244272938)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-24.pth.tar', 1.3420440530123776)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-23.pth.tar', 1.345014295077215)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-22.pth.tar', 1.3478606090153733)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:32 [   0/10 (  0%)]  Loss: 0.774948 (0.7749)  Time:(1.179s,   54.30/s)  LR:3.945e-06 7.213e-05 Data:(0.791)
+Train:32 [   9/10 (100%)]  Loss: 1.027027 (0.8426)  Time:(0.465s,  137.67/s)  LR:3.945e-06 7.213e-05 Data:(0.903)
+Test: [   0/3]  Time: 0.831 (0.831)  Loss:  0.4293 (0.4293)  Acc@1: 84.3750 (84.3750)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.131 (0.305)  Loss:  0.6479 (0.5161)  Acc@1: 74.0741 (77.1689)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.784 (0.784)  Loss:  1.3490 (1.3490)  Acc@1: 32.8125 (32.8125)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.131 (0.292)  Loss:  1.3746 (1.3178)  Acc@1: 33.3333 (39.7260)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-32.pth.tar', 1.3178433310495663)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-31.pth.tar', 1.320904980511426)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-30.pth.tar', 1.323963772216344)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-29.pth.tar', 1.3270195771570075)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-28.pth.tar', 1.3300321396083048)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-27.pth.tar', 1.3330739927074136)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-26.pth.tar', 1.3360642428811826)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-25.pth.tar', 1.3390789244272938)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-24.pth.tar', 1.3420440530123776)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-23.pth.tar', 1.345014295077215)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:33 [   0/10 (  0%)]  Loss: 0.967848 (0.9678)  Time:(1.087s,   58.88/s)  LR:3.609e-06 6.515e-05 Data:(0.704)
+Train:33 [   9/10 (100%)]  Loss: 0.812161 (0.7757)  Time:(0.453s,  141.16/s)  LR:3.609e-06 6.515e-05 Data:(0.815)
+Test: [   0/3]  Time: 0.776 (0.776)  Loss:  0.4217 (0.4217)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.126 (0.288)  Loss:  0.6304 (0.5132)  Acc@1: 77.7778 (76.7123)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 1.008 (1.008)  Loss:  1.3465 (1.3465)  Acc@1: 32.8125 (32.8125)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.128 (0.347)  Loss:  1.3715 (1.3148)  Acc@1: 33.3333 (39.7260)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-33.pth.tar', 1.314759321408729)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-32.pth.tar', 1.3178433310495663)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-31.pth.tar', 1.320904980511426)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-30.pth.tar', 1.323963772216344)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-29.pth.tar', 1.3270195771570075)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-28.pth.tar', 1.3300321396083048)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-27.pth.tar', 1.3330739927074136)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-26.pth.tar', 1.3360642428811826)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-25.pth.tar', 1.3390789244272938)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-24.pth.tar', 1.3420440530123776)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:34 [   0/10 (  0%)]  Loss: 1.081010 (1.0810)  Time:(1.267s,   50.51/s)  LR:3.285e-06 5.841e-05 Data:(0.885)
+Train:34 [   9/10 (100%)]  Loss: 0.577042 (0.8445)  Time:(0.472s,  135.62/s)  LR:3.285e-06 5.841e-05 Data:(0.995)
+Test: [   0/3]  Time: 0.721 (0.721)  Loss:  0.4184 (0.4184)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.125 (0.275)  Loss:  0.5927 (0.5122)  Acc@1: 81.4815 (76.2557)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.907 (0.907)  Loss:  1.3438 (1.3438)  Acc@1: 32.8125 (32.8125)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.124 (0.321)  Loss:  1.3684 (1.3117)  Acc@1: 33.3333 (39.7260)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-34.pth.tar', 1.3116991933622317)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-33.pth.tar', 1.314759321408729)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-32.pth.tar', 1.3178433310495663)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-31.pth.tar', 1.320904980511426)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-30.pth.tar', 1.323963772216344)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-29.pth.tar', 1.3270195771570075)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-28.pth.tar', 1.3300321396083048)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-27.pth.tar', 1.3330739927074136)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-26.pth.tar', 1.3360642428811826)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-25.pth.tar', 1.3390789244272938)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:35 [   0/10 (  0%)]  Loss: 0.677064 (0.6771)  Time:(1.430s,   44.77/s)  LR:2.973e-06 5.192e-05 Data:(1.046)
+Train:35 [   9/10 (100%)]  Loss: 0.666590 (0.8254)  Time:(0.491s,  130.22/s)  LR:2.973e-06 5.192e-05 Data:(1.160)
+Test: [   0/3]  Time: 0.804 (0.804)  Loss:  0.4136 (0.4136)  Acc@1: 84.3750 (84.3750)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.128 (0.297)  Loss:  0.6182 (0.5118)  Acc@1: 77.7778 (75.7991)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.872 (0.872)  Loss:  1.3412 (1.3412)  Acc@1: 34.3750 (34.3750)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.121 (0.311)  Loss:  1.3654 (1.3086)  Acc@1: 37.0370 (41.0959)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-35.pth.tar', 1.3085781265067182)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-34.pth.tar', 1.3116991933622317)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-33.pth.tar', 1.314759321408729)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-32.pth.tar', 1.3178433310495663)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-31.pth.tar', 1.320904980511426)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-30.pth.tar', 1.323963772216344)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-29.pth.tar', 1.3270195771570075)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-28.pth.tar', 1.3300321396083048)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-27.pth.tar', 1.3330739927074136)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-26.pth.tar', 1.3360642428811826)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:36 [   0/10 (  0%)]  Loss: 0.762894 (0.7629)  Time:(1.287s,   49.74/s)  LR:2.675e-06 4.573e-05 Data:(0.903)
+Train:36 [   9/10 (100%)]  Loss: 1.008729 (0.7977)  Time:(0.475s,  134.75/s)  LR:2.675e-06 4.573e-05 Data:(1.015)
+Test: [   0/3]  Time: 0.803 (0.803)  Loss:  0.4189 (0.4189)  Acc@1: 84.3750 (84.3750)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.129 (0.296)  Loss:  0.6492 (0.5130)  Acc@1: 77.7778 (78.0822)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.876 (0.876)  Loss:  1.3385 (1.3385)  Acc@1: 34.3750 (34.3750)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.124 (0.313)  Loss:  1.3624 (1.3055)  Acc@1: 44.4444 (42.0091)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-36.pth.tar', 1.305481063176508)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-35.pth.tar', 1.3085781265067182)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-34.pth.tar', 1.3116991933622317)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-33.pth.tar', 1.314759321408729)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-32.pth.tar', 1.3178433310495663)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-31.pth.tar', 1.320904980511426)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-30.pth.tar', 1.323963772216344)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-29.pth.tar', 1.3270195771570075)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-28.pth.tar', 1.3300321396083048)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-27.pth.tar', 1.3330739927074136)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:37 [   0/10 (  0%)]  Loss: 0.689622 (0.6896)  Time:(1.201s,   53.27/s)  LR:2.393e-06 3.985e-05 Data:(0.812)
+Train:37 [   9/10 (100%)]  Loss: 0.696862 (0.7815)  Time:(0.468s,  136.70/s)  LR:2.393e-06 3.985e-05 Data:(0.921)
+Test: [   0/3]  Time: 0.856 (0.856)  Loss:  0.4349 (0.4349)  Acc@1: 84.3750 (84.3750)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.131 (0.310)  Loss:  0.5976 (0.5131)  Acc@1: 77.7778 (76.2557)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.706 (0.706)  Loss:  1.3358 (1.3358)  Acc@1: 34.3750 (34.3750)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.131 (0.273)  Loss:  1.3591 (1.3023)  Acc@1: 44.4444 (43.3790)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-37.pth.tar', 1.3023237920787236)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-36.pth.tar', 1.305481063176508)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-35.pth.tar', 1.3085781265067182)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-34.pth.tar', 1.3116991933622317)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-33.pth.tar', 1.314759321408729)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-32.pth.tar', 1.3178433310495663)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-31.pth.tar', 1.320904980511426)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-30.pth.tar', 1.323963772216344)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-29.pth.tar', 1.3270195771570075)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-28.pth.tar', 1.3300321396083048)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:38 [   0/10 (  0%)]  Loss: 0.702605 (0.7026)  Time:(1.341s,   47.73/s)  LR:2.126e-06 3.431e-05 Data:(0.956)
+Train:38 [   9/10 (100%)]  Loss: 0.681394 (0.8723)  Time:(0.481s,  133.11/s)  LR:2.126e-06 3.431e-05 Data:(1.068)
+Test: [   0/3]  Time: 0.799 (0.799)  Loss:  0.4334 (0.4334)  Acc@1: 84.3750 (84.3750)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.124 (0.293)  Loss:  0.5811 (0.5137)  Acc@1: 81.4815 (77.1690)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.820 (0.820)  Loss:  1.3333 (1.3333)  Acc@1: 34.3750 (34.3750)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.131 (0.301)  Loss:  1.3561 (1.2993)  Acc@1: 44.4444 (43.8356)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-38.pth.tar', 1.2992549220176592)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-37.pth.tar', 1.3023237920787236)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-36.pth.tar', 1.305481063176508)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-35.pth.tar', 1.3085781265067182)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-34.pth.tar', 1.3116991933622317)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-33.pth.tar', 1.314759321408729)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-32.pth.tar', 1.3178433310495663)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-31.pth.tar', 1.320904980511426)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-30.pth.tar', 1.323963772216344)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-29.pth.tar', 1.3270195771570075)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:39 [   0/10 (  0%)]  Loss: 1.049155 (1.0492)  Time:(1.309s,   48.88/s)  LR:1.877e-06 2.913e-05 Data:(0.927)
+Train:39 [   9/10 (100%)]  Loss: 0.665925 (0.8479)  Time:(0.477s,  134.09/s)  LR:1.877e-06 2.913e-05 Data:(1.038)
+Test: [   0/3]  Time: 0.679 (0.679)  Loss:  0.4314 (0.4314)  Acc@1: 84.3750 (84.3750)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.129 (0.265)  Loss:  0.6230 (0.5127)  Acc@1: 77.7778 (77.6256)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.898 (0.898)  Loss:  1.3307 (1.3307)  Acc@1: 34.3750 (34.3750)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.124 (0.316)  Loss:  1.3528 (1.2961)  Acc@1: 44.4444 (43.8356)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-39.pth.tar', 1.2961253662631935)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-38.pth.tar', 1.2992549220176592)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-37.pth.tar', 1.3023237920787236)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-36.pth.tar', 1.305481063176508)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-35.pth.tar', 1.3085781265067182)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-34.pth.tar', 1.3116991933622317)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-33.pth.tar', 1.314759321408729)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-32.pth.tar', 1.3178433310495663)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-31.pth.tar', 1.320904980511426)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-30.pth.tar', 1.323963772216344)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:40 [   0/10 (  0%)]  Loss: 0.725016 (0.7250)  Time:(1.321s,   48.46/s)  LR:1.646e-06 2.433e-05 Data:(0.928)
+Train:40 [   9/10 (100%)]  Loss: 0.793144 (0.7392)  Time:(0.479s,  133.71/s)  LR:1.646e-06 2.433e-05 Data:(1.039)
+Test: [   0/3]  Time: 0.827 (0.827)  Loss:  0.4217 (0.4217)  Acc@1: 85.9375 (85.9375)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.128 (0.303)  Loss:  0.6551 (0.5119)  Acc@1: 74.0741 (78.0822)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.688 (0.688)  Loss:  1.3281 (1.3281)  Acc@1: 35.9375 (35.9375)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.131 (0.269)  Loss:  1.3496 (1.2930)  Acc@1: 44.4444 (44.2922)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-40.pth.tar', 1.2929920284715417)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-39.pth.tar', 1.2961253662631935)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-38.pth.tar', 1.2992549220176592)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-37.pth.tar', 1.3023237920787236)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-36.pth.tar', 1.305481063176508)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-35.pth.tar', 1.3085781265067182)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-34.pth.tar', 1.3116991933622317)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-33.pth.tar', 1.314759321408729)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-32.pth.tar', 1.3178433310495663)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-31.pth.tar', 1.320904980511426)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:41 [   0/10 (  0%)]  Loss: 0.766691 (0.7667)  Time:(1.234s,   51.86/s)  LR:1.434e-06 1.992e-05 Data:(0.850)
+Train:41 [   9/10 (100%)]  Loss: 0.618694 (0.8099)  Time:(0.468s,  136.62/s)  LR:1.434e-06 1.992e-05 Data:(0.961)
+Test: [   0/3]  Time: 0.879 (0.879)  Loss:  0.4201 (0.4201)  Acc@1: 85.9375 (85.9375)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.129 (0.314)  Loss:  0.6496 (0.5106)  Acc@1: 74.0741 (78.0822)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.828 (0.828)  Loss:  1.3254 (1.3254)  Acc@1: 37.5000 (37.5000)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.124 (0.299)  Loss:  1.3465 (1.2899)  Acc@1: 44.4444 (44.7489)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-41.pth.tar', 1.2898653054346232)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-40.pth.tar', 1.2929920284715417)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-39.pth.tar', 1.2961253662631935)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-38.pth.tar', 1.2992549220176592)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-37.pth.tar', 1.3023237920787236)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-36.pth.tar', 1.305481063176508)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-35.pth.tar', 1.3085781265067182)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-34.pth.tar', 1.3116991933622317)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-33.pth.tar', 1.314759321408729)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-32.pth.tar', 1.3178433310495663)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:42 [   0/10 (  0%)]  Loss: 0.650886 (0.6509)  Time:(1.419s,   45.09/s)  LR:1.242e-06 1.593e-05 Data:(1.035)
+Train:42 [   9/10 (100%)]  Loss: 0.720385 (0.7801)  Time:(0.489s,  130.99/s)  LR:1.242e-06 1.593e-05 Data:(1.147)
+Test: [   0/3]  Time: 0.905 (0.905)  Loss:  0.4174 (0.4174)  Acc@1: 84.3750 (84.3750)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.126 (0.320)  Loss:  0.6072 (0.5097)  Acc@1: 77.7778 (77.1689)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.904 (0.904)  Loss:  1.3227 (1.3227)  Acc@1: 39.0625 (39.0625)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.132 (0.322)  Loss:  1.3433 (1.2867)  Acc@1: 44.4444 (45.2055)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-42.pth.tar', 1.2867451350982875)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-41.pth.tar', 1.2898653054346232)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-40.pth.tar', 1.2929920284715417)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-39.pth.tar', 1.2961253662631935)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-38.pth.tar', 1.2992549220176592)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-37.pth.tar', 1.3023237920787236)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-36.pth.tar', 1.305481063176508)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-35.pth.tar', 1.3085781265067182)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-34.pth.tar', 1.3116991933622317)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-33.pth.tar', 1.314759321408729)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:43 [   0/10 (  0%)]  Loss: 0.735395 (0.7354)  Time:(1.182s,   54.17/s)  LR:1.071e-06 1.237e-05 Data:(0.799)
+Train:43 [   9/10 (100%)]  Loss: 0.645463 (0.8287)  Time:(0.464s,  137.90/s)  LR:1.071e-06 1.237e-05 Data:(0.909)
+Test: [   0/3]  Time: 0.927 (0.927)  Loss:  0.4207 (0.4207)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.126 (0.325)  Loss:  0.5803 (0.5102)  Acc@1: 77.7778 (76.2557)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.877 (0.877)  Loss:  1.3199 (1.3199)  Acc@1: 40.6250 (40.6250)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.126 (0.315)  Loss:  1.3402 (1.2835)  Acc@1: 44.4444 (46.1187)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-43.pth.tar', 1.2835244784072108)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-42.pth.tar', 1.2867451350982875)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-41.pth.tar', 1.2898653054346232)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-40.pth.tar', 1.2929920284715417)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-39.pth.tar', 1.2961253662631935)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-38.pth.tar', 1.2992549220176592)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-37.pth.tar', 1.3023237920787236)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-36.pth.tar', 1.305481063176508)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-35.pth.tar', 1.3085781265067182)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-34.pth.tar', 1.3116991933622317)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:44 [   0/10 (  0%)]  Loss: 0.659193 (0.6592)  Time:(1.170s,   54.70/s)  LR:9.213e-07 9.260e-06 Data:(0.786)
+Train:44 [   9/10 (100%)]  Loss: 1.054247 (0.9570)  Time:(0.463s,  138.16/s)  LR:9.213e-07 9.260e-06 Data:(0.895)
+Test: [   0/3]  Time: 0.761 (0.761)  Loss:  0.4273 (0.4273)  Acc@1: 84.3750 (84.3750)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.129 (0.285)  Loss:  0.5858 (0.5104)  Acc@1: 77.7778 (76.7123)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.705 (0.705)  Loss:  1.3171 (1.3171)  Acc@1: 40.6250 (40.6250)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.125 (0.270)  Loss:  1.3370 (1.2804)  Acc@1: 44.4444 (46.1187)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-44.pth.tar', 1.280356895978048)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-43.pth.tar', 1.2835244784072108)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-42.pth.tar', 1.2867451350982875)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-41.pth.tar', 1.2898653054346232)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-40.pth.tar', 1.2929920284715417)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-39.pth.tar', 1.2961253662631935)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-38.pth.tar', 1.2992549220176592)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-37.pth.tar', 1.3023237920787236)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-36.pth.tar', 1.305481063176508)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-35.pth.tar', 1.3085781265067182)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:45 [   0/10 (  0%)]  Loss: 0.771625 (0.7716)  Time:(1.367s,   46.83/s)  LR:7.937e-07 6.606e-06 Data:(0.982)
+Train:45 [   9/10 (100%)]  Loss: 1.114507 (0.8372)  Time:(0.482s,  132.75/s)  LR:7.937e-07 6.606e-06 Data:(1.091)
+Test: [   0/3]  Time: 0.827 (0.827)  Loss:  0.4297 (0.4297)  Acc@1: 84.3750 (84.3750)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.125 (0.301)  Loss:  0.5850 (0.5105)  Acc@1: 77.7778 (77.1689)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.712 (0.712)  Loss:  1.3143 (1.3143)  Acc@1: 42.1875 (42.1875)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.129 (0.273)  Loss:  1.3338 (1.2772)  Acc@1: 48.1481 (48.4018)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-45.pth.tar', 1.2772056925786686)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-44.pth.tar', 1.280356895978048)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-43.pth.tar', 1.2835244784072108)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-42.pth.tar', 1.2867451350982875)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-41.pth.tar', 1.2898653054346232)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-40.pth.tar', 1.2929920284715417)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-39.pth.tar', 1.2961253662631935)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-38.pth.tar', 1.2992549220176592)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-37.pth.tar', 1.3023237920787236)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-36.pth.tar', 1.305481063176508)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:46 [   0/10 (  0%)]  Loss: 1.190318 (1.1903)  Time:(1.169s,   54.75/s)  LR:6.885e-07 4.419e-06 Data:(0.787)
+Train:46 [   9/10 (100%)]  Loss: 1.015526 (0.8637)  Time:(0.462s,  138.54/s)  LR:6.885e-07 4.419e-06 Data:(0.896)
+Test: [   0/3]  Time: 0.976 (0.976)  Loss:  0.4297 (0.4297)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.130 (0.339)  Loss:  0.6123 (0.5105)  Acc@1: 77.7778 (76.7123)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.897 (0.897)  Loss:  1.3115 (1.3115)  Acc@1: 42.1875 (42.1875)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.125 (0.317)  Loss:  1.3306 (1.2740)  Acc@1: 48.1481 (48.4018)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-46.pth.tar', 1.2740157858966148)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-45.pth.tar', 1.2772056925786686)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-44.pth.tar', 1.280356895978048)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-43.pth.tar', 1.2835244784072108)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-42.pth.tar', 1.2867451350982875)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-41.pth.tar', 1.2898653054346232)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-40.pth.tar', 1.2929920284715417)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-39.pth.tar', 1.2961253662631935)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-38.pth.tar', 1.2992549220176592)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-37.pth.tar', 1.3023237920787236)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:47 [   0/10 (  0%)]  Loss: 0.771227 (0.7712)  Time:(1.112s,   57.56/s)  LR:6.063e-07 2.710e-06 Data:(0.730)
+Train:47 [   9/10 (100%)]  Loss: 0.659300 (0.8494)  Time:(0.456s,  140.21/s)  LR:6.063e-07 2.710e-06 Data:(0.841)
+Test: [   0/3]  Time: 0.866 (0.866)  Loss:  0.4300 (0.4300)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.128 (0.311)  Loss:  0.6149 (0.5107)  Acc@1: 77.7778 (77.1689)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.903 (0.903)  Loss:  1.3087 (1.3087)  Acc@1: 42.1875 (42.1875)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.130 (0.321)  Loss:  1.3274 (1.2708)  Acc@1: 48.1481 (49.3151)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-47.pth.tar', 1.2708470473006435)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-46.pth.tar', 1.2740157858966148)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-45.pth.tar', 1.2772056925786686)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-44.pth.tar', 1.280356895978048)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-43.pth.tar', 1.2835244784072108)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-42.pth.tar', 1.2867451350982875)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-41.pth.tar', 1.2898653054346232)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-40.pth.tar', 1.2929920284715417)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-39.pth.tar', 1.2961253662631935)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-38.pth.tar', 1.2992549220176592)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:48 [   0/10 (  0%)]  Loss: 0.971156 (0.9712)  Time:(1.417s,   45.15/s)  LR:5.473e-07 1.484e-06 Data:(1.034)
+Train:48 [   9/10 (100%)]  Loss: 0.620106 (0.7896)  Time:(0.489s,  130.81/s)  LR:5.473e-07 1.484e-06 Data:(1.143)
+Test: [   0/3]  Time: 0.870 (0.870)  Loss:  0.4308 (0.4308)  Acc@1: 84.3750 (84.3750)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.131 (0.312)  Loss:  0.6180 (0.5106)  Acc@1: 77.7778 (77.6256)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.720 (0.720)  Loss:  1.3060 (1.3060)  Acc@1: 42.1875 (42.1875)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.128 (0.272)  Loss:  1.3242 (1.2677)  Acc@1: 48.1481 (48.8584)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-48.pth.tar', 1.2676724832351893)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-47.pth.tar', 1.2708470473006435)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-46.pth.tar', 1.2740157858966148)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-45.pth.tar', 1.2772056925786686)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-44.pth.tar', 1.280356895978048)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-43.pth.tar', 1.2835244784072108)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-42.pth.tar', 1.2867451350982875)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-41.pth.tar', 1.2898653054346232)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-40.pth.tar', 1.2929920284715417)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-39.pth.tar', 1.2961253662631935)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:49 [   0/10 (  0%)]  Loss: 0.653109 (0.6531)  Time:(1.269s,   50.44/s)  LR:5.118e-07 7.462e-07 Data:(0.885)
+Train:49 [   9/10 (100%)]  Loss: 1.047113 (0.7956)  Time:(0.472s,  135.48/s)  LR:5.118e-07 7.462e-07 Data:(0.996)
+Test: [   0/3]  Time: 0.803 (0.803)  Loss:  0.4305 (0.4305)  Acc@1: 84.3750 (84.3750)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.128 (0.295)  Loss:  0.6257 (0.5105)  Acc@1: 77.7778 (77.6256)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.693 (0.693)  Loss:  1.3031 (1.3031)  Acc@1: 43.7500 (43.7500)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.129 (0.268)  Loss:  1.3212 (1.2645)  Acc@1: 48.1481 (49.3151)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-49.pth.tar', 1.264473114928154)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-48.pth.tar', 1.2676724832351893)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-47.pth.tar', 1.2708470473006435)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-46.pth.tar', 1.2740157858966148)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-45.pth.tar', 1.2772056925786686)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-44.pth.tar', 1.280356895978048)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-43.pth.tar', 1.2835244784072108)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-42.pth.tar', 1.2867451350982875)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-41.pth.tar', 1.2898653054346232)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-40.pth.tar', 1.2929920284715417)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:50 [   0/10 (  0%)]  Loss: 0.666731 (0.6667)  Time:(1.296s,   49.39/s)  LR:5.000e-07 5.000e-07 Data:(0.913)
+Train:50 [   9/10 (100%)]  Loss: 0.687674 (0.8797)  Time:(0.475s,  134.79/s)  LR:5.000e-07 5.000e-07 Data:(1.023)
+Test: [   0/3]  Time: 0.879 (0.879)  Loss:  0.4303 (0.4303)  Acc@1: 84.3750 (84.3750)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.125 (0.314)  Loss:  0.6316 (0.5104)  Acc@1: 77.7778 (77.6256)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.885 (0.885)  Loss:  1.3002 (1.3002)  Acc@1: 45.3125 (45.3125)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.123 (0.315)  Loss:  1.3181 (1.2613)  Acc@1: 48.1481 (49.7717)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-50.pth.tar', 1.2612744896379235)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-49.pth.tar', 1.264473114928154)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-48.pth.tar', 1.2676724832351893)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-47.pth.tar', 1.2708470473006435)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-46.pth.tar', 1.2740157858966148)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-45.pth.tar', 1.2772056925786686)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-44.pth.tar', 1.280356895978048)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-43.pth.tar', 1.2835244784072108)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-42.pth.tar', 1.2867451350982875)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-41.pth.tar', 1.2898653054346232)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:51 [   0/10 (  0%)]  Loss: 0.677874 (0.6779)  Time:(1.157s,   55.34/s)  LR:5.000e-07 5.000e-07 Data:(0.773)
+Train:51 [   9/10 (100%)]  Loss: 0.660542 (0.7937)  Time:(0.461s,  138.92/s)  LR:5.000e-07 5.000e-07 Data:(0.882)
+Test: [   0/3]  Time: 0.702 (0.702)  Loss:  0.4306 (0.4306)  Acc@1: 84.3750 (84.3750)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.131 (0.270)  Loss:  0.6255 (0.5104)  Acc@1: 77.7778 (77.6256)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.681 (0.681)  Loss:  1.2974 (1.2974)  Acc@1: 45.3125 (45.3125)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.126 (0.264)  Loss:  1.3151 (1.2581)  Acc@1: 44.4444 (49.7717)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-51.pth.tar', 1.2580811351401622)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-50.pth.tar', 1.2612744896379235)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-49.pth.tar', 1.264473114928154)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-48.pth.tar', 1.2676724832351893)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-47.pth.tar', 1.2708470473006435)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-46.pth.tar', 1.2740157858966148)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-45.pth.tar', 1.2772056925786686)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-44.pth.tar', 1.280356895978048)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-43.pth.tar', 1.2835244784072108)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-42.pth.tar', 1.2867451350982875)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:52 [   0/10 (  0%)]  Loss: 0.701666 (0.7017)  Time:(1.264s,   50.65/s)  LR:5.000e-07 5.000e-07 Data:(0.870)
+Train:52 [   9/10 (100%)]  Loss: 0.797196 (0.7407)  Time:(0.475s,  134.71/s)  LR:5.000e-07 5.000e-07 Data:(0.981)
+Test: [   0/3]  Time: 0.877 (0.877)  Loss:  0.4304 (0.4304)  Acc@1: 84.3750 (84.3750)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.128 (0.312)  Loss:  0.6270 (0.5102)  Acc@1: 77.7778 (77.6256)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.895 (0.895)  Loss:  1.2944 (1.2944)  Acc@1: 45.3125 (45.3125)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.130 (0.319)  Loss:  1.3119 (1.2549)  Acc@1: 44.4444 (49.7717)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-52.pth.tar', 1.2548566702838357)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-51.pth.tar', 1.2580811351401622)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-50.pth.tar', 1.2612744896379235)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-49.pth.tar', 1.264473114928154)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-48.pth.tar', 1.2676724832351893)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-47.pth.tar', 1.2708470473006435)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-46.pth.tar', 1.2740157858966148)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-45.pth.tar', 1.2772056925786686)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-44.pth.tar', 1.280356895978048)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-43.pth.tar', 1.2835244784072108)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:53 [   0/10 (  0%)]  Loss: 0.632298 (0.6323)  Time:(1.134s,   56.44/s)  LR:5.000e-07 5.000e-07 Data:(0.752)
+Train:53 [   9/10 (100%)]  Loss: 0.663625 (0.7171)  Time:(0.460s,  139.02/s)  LR:5.000e-07 5.000e-07 Data:(0.861)
+Test: [   0/3]  Time: 0.863 (0.863)  Loss:  0.4297 (0.4297)  Acc@1: 84.3750 (84.3750)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.122 (0.309)  Loss:  0.6304 (0.5098)  Acc@1: 77.7778 (77.6256)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.692 (0.692)  Loss:  1.2915 (1.2915)  Acc@1: 45.3125 (45.3125)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.131 (0.267)  Loss:  1.3088 (1.2516)  Acc@1: 44.4444 (49.7717)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-53.pth.tar', 1.2516222228742626)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-52.pth.tar', 1.2548566702838357)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-51.pth.tar', 1.2580811351401622)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-50.pth.tar', 1.2612744896379235)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-49.pth.tar', 1.264473114928154)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-48.pth.tar', 1.2676724832351893)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-47.pth.tar', 1.2708470473006435)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-46.pth.tar', 1.2740157858966148)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-45.pth.tar', 1.2772056925786686)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-44.pth.tar', 1.280356895978048)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:54 [   0/10 (  0%)]  Loss: 0.752923 (0.7529)  Time:(1.328s,   48.21/s)  LR:5.000e-07 5.000e-07 Data:(0.944)
+Train:54 [   9/10 (100%)]  Loss: 0.758764 (0.9043)  Time:(0.478s,  133.81/s)  LR:5.000e-07 5.000e-07 Data:(1.054)
+Test: [   0/3]  Time: 0.872 (0.872)  Loss:  0.4320 (0.4320)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.125 (0.313)  Loss:  0.6255 (0.5099)  Acc@1: 77.7778 (77.1689)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.846 (0.846)  Loss:  1.2887 (1.2887)  Acc@1: 45.3125 (45.3125)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.128 (0.305)  Loss:  1.3055 (1.2484)  Acc@1: 44.4444 (49.7717)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-54.pth.tar', 1.2484166415314697)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-53.pth.tar', 1.2516222228742626)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-52.pth.tar', 1.2548566702838357)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-51.pth.tar', 1.2580811351401622)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-50.pth.tar', 1.2612744896379235)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-49.pth.tar', 1.264473114928154)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-48.pth.tar', 1.2676724832351893)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-47.pth.tar', 1.2708470473006435)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-46.pth.tar', 1.2740157858966148)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-45.pth.tar', 1.2772056925786686)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:55 [   0/10 (  0%)]  Loss: 1.080122 (1.0801)  Time:(1.307s,   48.98/s)  LR:5.000e-07 5.000e-07 Data:(0.923)
+Train:55 [   9/10 (100%)]  Loss: 0.986500 (0.9205)  Time:(0.485s,  131.93/s)  LR:5.000e-07 5.000e-07 Data:(1.034)
+Test: [   0/3]  Time: 0.813 (0.813)  Loss:  0.4344 (0.4344)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.125 (0.295)  Loss:  0.6128 (0.5098)  Acc@1: 77.7778 (77.1689)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.893 (0.893)  Loss:  1.2857 (1.2857)  Acc@1: 45.3125 (45.3125)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.132 (0.319)  Loss:  1.3024 (1.2452)  Acc@1: 44.4444 (49.3151)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-55.pth.tar', 1.2451978355782216)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-54.pth.tar', 1.2484166415314697)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-53.pth.tar', 1.2516222228742626)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-52.pth.tar', 1.2548566702838357)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-51.pth.tar', 1.2580811351401622)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-50.pth.tar', 1.2612744896379235)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-49.pth.tar', 1.264473114928154)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-48.pth.tar', 1.2676724832351893)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-47.pth.tar', 1.2708470473006435)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-46.pth.tar', 1.2740157858966148)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:56 [   0/10 (  0%)]  Loss: 1.088914 (1.0889)  Time:(1.316s,   48.65/s)  LR:5.000e-07 5.000e-07 Data:(0.931)
+Train:56 [   9/10 (100%)]  Loss: 1.083605 (0.8863)  Time:(0.481s,  133.10/s)  LR:5.000e-07 5.000e-07 Data:(1.042)
+Test: [   0/3]  Time: 0.800 (0.800)  Loss:  0.4371 (0.4371)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.130 (0.295)  Loss:  0.6059 (0.5098)  Acc@1: 77.7778 (76.7123)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.992 (0.992)  Loss:  1.2828 (1.2828)  Acc@1: 46.8750 (46.8750)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.126 (0.342)  Loss:  1.2993 (1.2420)  Acc@1: 44.4444 (50.2283)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-56.pth.tar', 1.2419856999018422)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-55.pth.tar', 1.2451978355782216)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-54.pth.tar', 1.2484166415314697)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-53.pth.tar', 1.2516222228742626)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-52.pth.tar', 1.2548566702838357)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-51.pth.tar', 1.2580811351401622)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-50.pth.tar', 1.2612744896379235)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-49.pth.tar', 1.264473114928154)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-48.pth.tar', 1.2676724832351893)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-47.pth.tar', 1.2708470473006435)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:57 [   0/10 (  0%)]  Loss: 0.720831 (0.7208)  Time:(1.357s,   47.18/s)  LR:5.000e-07 5.000e-07 Data:(0.975)
+Train:57 [   9/10 (100%)]  Loss: 1.123682 (0.8341)  Time:(0.482s,  132.76/s)  LR:5.000e-07 5.000e-07 Data:(1.087)
+Test: [   0/3]  Time: 0.819 (0.819)  Loss:  0.4395 (0.4395)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.132 (0.301)  Loss:  0.6059 (0.5103)  Acc@1: 77.7778 (76.7123)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.702 (0.702)  Loss:  1.2797 (1.2797)  Acc@1: 46.8750 (46.8750)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.130 (0.269)  Loss:  1.2963 (1.2388)  Acc@1: 44.4444 (51.1416)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-57.pth.tar', 1.2387847236302345)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-56.pth.tar', 1.2419856999018422)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-55.pth.tar', 1.2451978355782216)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-54.pth.tar', 1.2484166415314697)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-53.pth.tar', 1.2516222228742626)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-52.pth.tar', 1.2548566702838357)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-51.pth.tar', 1.2580811351401622)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-50.pth.tar', 1.2612744896379235)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-49.pth.tar', 1.264473114928154)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-48.pth.tar', 1.2676724832351893)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:58 [   0/10 (  0%)]  Loss: 0.752572 (0.7526)  Time:(1.214s,   52.74/s)  LR:5.000e-07 5.000e-07 Data:(0.819)
+Train:58 [   9/10 (100%)]  Loss: 0.652121 (0.7304)  Time:(0.468s,  136.82/s)  LR:5.000e-07 5.000e-07 Data:(0.931)
+Test: [   0/3]  Time: 0.891 (0.891)  Loss:  0.4390 (0.4390)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.132 (0.318)  Loss:  0.6112 (0.5104)  Acc@1: 77.7778 (77.1689)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.887 (0.887)  Loss:  1.2769 (1.2769)  Acc@1: 46.8750 (46.8750)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.131 (0.317)  Loss:  1.2929 (1.2356)  Acc@1: 44.4444 (51.1416)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-58.pth.tar', 1.2355596768801616)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-57.pth.tar', 1.2387847236302345)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-56.pth.tar', 1.2419856999018422)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-55.pth.tar', 1.2451978355782216)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-54.pth.tar', 1.2484166415314697)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-53.pth.tar', 1.2516222228742626)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-52.pth.tar', 1.2548566702838357)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-51.pth.tar', 1.2580811351401622)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-50.pth.tar', 1.2612744896379235)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-49.pth.tar', 1.264473114928154)
+
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torchvision/transforms/functional.py:443: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  "Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. "
+Train:59 [   0/10 (  0%)]  Loss: 0.946477 (0.9465)  Time:(1.514s,   42.26/s)  LR:5.000e-07 5.000e-07 Data:(1.130)
+Train:59 [   9/10 (100%)]  Loss: 1.075062 (0.9319)  Time:(0.497s,  128.84/s)  LR:5.000e-07 5.000e-07 Data:(1.242)
+Test: [   0/3]  Time: 0.824 (0.824)  Loss:  0.4386 (0.4386)  Acc@1: 82.8125 (82.8125)  Acc@5: 100.0000 (100.0000)
+Test: [   3/3]  Time: 0.126 (0.300)  Loss:  0.6088 (0.5103)  Acc@1: 77.7778 (77.1689)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   0/3]  Time: 0.853 (0.853)  Loss:  1.2740 (1.2740)  Acc@1: 46.8750 (46.8750)  Acc@5: 100.0000 (100.0000)
+Test (EMA): [   3/3]  Time: 0.131 (0.309)  Loss:  1.2897 (1.2324)  Acc@1: 44.4444 (51.1416)  Acc@5: 100.0000 (100.0000)
+Current checkpoints:
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-59.pth.tar', 1.2323606455162779)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-58.pth.tar', 1.2355596768801616)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-57.pth.tar', 1.2387847236302345)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-56.pth.tar', 1.2419856999018422)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-55.pth.tar', 1.2451978355782216)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-54.pth.tar', 1.2484166415314697)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-53.pth.tar', 1.2516222228742626)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-52.pth.tar', 1.2548566702838357)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-51.pth.tar', 1.2580811351401622)
+ ('./output/finetune/20231001-194440-CSWin_64_12211_tiny_224-224/checkpoint-50.pth.tar', 1.2612744896379235)
+
+*** Best metric: 1.2323606455162779 (epoch 59)
+/home/gcperkins/miniconda3/envs/cswin/lib/python3.7/site-packages/torch/distributed/launch.py:188: FutureWarning: The module torch.distributed.launch is deprecated
+and will be removed in future. Use torchrun.
+Note that --use_env is set by default in torchrun.
+If your script expects `--local_rank` argument to be set, please
+change it to read from `os.environ['LOCAL_RANK']` instead. See 
+https://pytorch.org/docs/stable/distributed.html#launch-utility for 
+further instructions
+
+  FutureWarning,

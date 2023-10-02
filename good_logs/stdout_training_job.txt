@@ -20,4 +20,4 @@ patch_torch_functions  : True
 keep_batchnorm_fp32    : None
 master_weights         : None
 loss_scale             : dynamic
-{'Model': ['CSWin'], 'Accuracy': [0.7945205479452054], 'F1-Score': [0.79811521404652], 'Sensitivity': [0.7946891272978229], 'Specificity': [0.9307022633365507], 'TPR': [0.7946891272978229], 'FPR': [0.4668457674571804], 'PPV': [0.8032533697047497], 'NPV': [0.9308986526698259]}
+{'Model': ['CSWin'], 'Accuracy': [0.776255707762557], 'F1-Score': [0.7786619839632566], 'Sensitivity': [0.7750878348704435], 'Specificity': [0.9244460952835407], 'TPR': [0.7750878348704435], 'FPR': [0.44655659581646423], 'PPV': [0.78676350048216], 'NPV': [0.9255200607622515]}
