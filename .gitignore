@@ -1,6 +1,6 @@
 *.pth
+*.pth.*
 __pycache__
 apex
-output
 venv
 .idea
