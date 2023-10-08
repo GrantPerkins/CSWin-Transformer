@@ -20,5 +20,6 @@ patch_torch_functions  : True
 keep_batchnorm_fp32    : None
 master_weights         : None
 loss_scale             : dynamic
+Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 65536.0
 Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 32768.0
-{'Model': ['CSWin'], 'Accuracy': [0.7853881278538812], 'F1-Score': [0.787477494556823], 'Sensitivity': [0.7838195620804317], 'Specificity': [0.9275753089900841], 'TPR': [0.7838195620804317], 'FPR': [0.47057109557109555], 'PPV': [0.7952197468590911], 'NPV': [0.9282558861672786]}
+{'Model': ['CSWin'], 'Accuracy': [0.7899543378995434], 'F1-Score': [0.7905030377921942], 'Sensitivity': [0.7865863604994039], 'Specificity': [0.9289433515166632], 'TPR': [0.7865863604994039], 'FPR': [0.47756410256410253], 'PPV': [0.8012702317237159], 'NPV': [0.9301814958958703]}
