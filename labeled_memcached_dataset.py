@@ -12,15 +12,18 @@ from PIL import Image
 import os
 import json
 import random
+
+
 def load_img(filepath):
     img = Image.open(filepath).convert('RGB')
     return img
 
+
 class McDataset(Dataset):
-    def __init__(self, data_root, file_list, phase = 'train', transform=None):
+    def __init__(self, data_root, file_list, phase='train', transform=None):
         self.transform = transform
         self.root = os.path.join(data_root, phase)
-        
+
         temp_label = json.load(open('./dataset/piid_class_index.json', 'r'))
         self.labels = {}
         for i in range(4):
@@ -36,10 +39,10 @@ class McDataset(Dataset):
 
         self.num = len(self.A_paths)
         self.A_size = len(self.A_paths)
- 
+
     def __len__(self):
         return self.num
- 
+
     def __getitem__(self, index):
         return self.load_img(index)
         # return self.__getitem__(random.randint(0, self.__len__()-1))
@@ -51,3 +54,29 @@ class McDataset(Dataset):
             A = self.transform(A)
         A_label = self.A_labels[index % self.A_size]
         return A, A_label
+
+
+class FoldMcDataset(McDataset):
+    def __init__(self, folds, data_root, transform=None):
+        self.transform = transform
+        self.root = data_root
+
+        temp_label = json.load(open('./dataset/piid_class_index.json', 'r'))
+        self.labels = {}
+        for i in range(4):
+            self.labels[temp_label[str(i)][0]] = i
+        self.A_paths = []
+        self.A_labels = []
+
+        temp_path = []
+        for fold in folds:
+            with open(f"./dataset/folds/fold_{fold}.txt", 'r') as f:
+                temp_path.extend(f.readlines())
+
+        for path in temp_path:
+            label = self.labels[path.split('/')[0]]
+            self.A_paths.append(os.path.join(self.root, path.strip()))
+            self.A_labels.append(label)
+
+        self.num = len(self.A_paths)
+        self.A_size = len(self.A_paths)

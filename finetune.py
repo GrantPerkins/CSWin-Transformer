@@ -28,7 +28,7 @@ from timm.loss import LabelSmoothingCrossEntropy, SoftTargetCrossEntropy, JsdCro
 from timm.scheduler import create_scheduler
 from timm.utils import ApexScaler, NativeScaler
 from checkpoint_saver import CheckpointSaver
-from labeled_memcached_dataset import McDataset
+from labeled_memcached_dataset import FoldMcDataset
 import torch.optim as optim
 from metrics import Metrics
 from sklearn.metrics import accuracy_score
@@ -247,6 +247,11 @@ parser.add_argument('--use-chk', action='store_true', default=False,
                     help='Enable tracking moving average of model weights')
 parser.add_argument('--ema-finetune', action='store_true', default=False,
                     help='Enable tracking moving average of model weights')
+
+# Grant params
+parser.add_argument("--val_fold", type=int)
+
+
 try:
     from apex import amp
     from apex.parallel import DistributedDataParallel as ApexDDP
@@ -602,7 +607,8 @@ def main():
     if not os.path.exists(train_dir):
         _logger.error('Training folder does not exist at: {}'.format(train_dir))
         exit(1)
-    dataset_train = McDataset(args.data, './dataset/piid_name_train.txt', 'train')
+    train_folds = [i for i in range(5) if i!=args.val_fold]
+    dataset_train = FoldMcDataset(train_folds, args.data)
 
     collate_fn = None
     mixup_fn = None
@@ -660,7 +666,8 @@ def main():
         if not os.path.isdir(eval_dir):
             _logger.error('Validation folder does not exist at: {}'.format(eval_dir))
             exit(1)
-    dataset_eval = McDataset(args.data, './dataset/piid_name_val.txt', 'val')
+
+    dataset_eval = FoldMcDataset([args.val_fold], args.data)
 
     loader_eval = create_loader(
         dataset_eval,
@@ -943,7 +950,7 @@ def train_epoch(
     if hasattr(optimizer, 'sync_lookahead'):
         optimizer.sync_lookahead()
 
-    return OrderedDict([('loss', losses_m.avg), ("train_top1", top1_m.avg)])
+    return OrderedDict([('loss', losses_m.avg), ("top1", top1_m.avg)])
 
 
 def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix=''):
