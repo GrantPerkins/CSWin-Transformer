@@ -610,6 +610,7 @@ def main():
     #     exit(1)
     train_folds = [i for i in range(5) if i!=args.val_fold]
     dataset_train = FoldMcDataset(train_folds, args.data)
+    print("LENGTH TRAIN:", len(dataset_train))
 
     collate_fn = None
     mixup_fn = None
