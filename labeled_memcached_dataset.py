@@ -72,7 +72,7 @@ class FoldMcDataset(McDataset):
         for fold in folds:
             with open(f"./dataset/folds/fold_{fold}.txt", 'r') as f:
                 temp_path.extend(f.readlines())
-
+        print(temp_path)
         for path in temp_path:
             label = self.labels[path.split('/')[0]]
             self.A_paths.append(os.path.join(self.root, path.strip()))
