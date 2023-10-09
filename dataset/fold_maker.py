@@ -9,7 +9,7 @@ with open("piid_name_test.txt") as f:
 
 with open("piid_name_val.txt") as f:
     lines.extend(f.readlines())
-lines = [i.strip() for i in lines]
+# lines = [i.strip() for i in lines]
 random.shuffle(lines)
 size = len(lines) // 5
 for i in range(5):
