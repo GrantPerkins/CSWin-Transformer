@@ -603,10 +603,10 @@ def main():
     if args.local_rank == 0:
         _logger.info('Scheduled epochs: {}'.format(num_epochs))
 
-    train_dir = os.path.join(args.data, 'train')
-    if not os.path.exists(train_dir):
-        _logger.error('Training folder does not exist at: {}'.format(train_dir))
-        exit(1)
+    # train_dir = os.path.join(args.data, 'train')
+    # if not os.path.exists(train_dir):
+    #     _logger.error('Training folder does not exist at: {}'.format(train_dir))
+    #     exit(1)
     train_folds = [i for i in range(5) if i!=args.val_fold]
     dataset_train = FoldMcDataset(train_folds, args.data)
 
@@ -660,12 +660,12 @@ def main():
         use_multi_epochs_loader=args.use_multi_epochs_loader
     )
 
-    eval_dir = os.path.join(args.data, 'val')
-    if not os.path.isdir(eval_dir):
-        eval_dir = os.path.join(args.data, 'validation')
-        if not os.path.isdir(eval_dir):
-            _logger.error('Validation folder does not exist at: {}'.format(eval_dir))
-            exit(1)
+    # eval_dir = os.path.join(args.data, 'val')
+    # if not os.path.isdir(eval_dir):
+    #     eval_dir = os.path.join(args.data, 'validation')
+    #     if not os.path.isdir(eval_dir):
+    #         _logger.error('Validation folder does not exist at: {}'.format(eval_dir))
+    #         exit(1)
 
     dataset_eval = FoldMcDataset([args.val_fold], args.data)
 
