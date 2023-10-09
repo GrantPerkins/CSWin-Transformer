@@ -7,6 +7,7 @@
 
 import argparse
 import copy
+import sys
 import time
 import yaml
 import os
@@ -625,7 +626,9 @@ def main():
             mixup_fn = Mixup(**mixup_args)
 
     if num_aug_splits > 1:
-        dataset_train = AugMixDataset(dataset_train, num_splits=num_aug_splits)
+        print("AUG SPLITS SET")
+        assert num_aug_splits == 0
+        # dataset_train = AugMixDataset(dataset_train, num_splits=num_aug_splits)
 
     train_interpolation = args.train_interpolation
     if args.no_aug or not train_interpolation:
