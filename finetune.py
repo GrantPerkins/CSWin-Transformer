@@ -619,6 +619,7 @@ def main():
             mixup_fn = Mixup(**mixup_args)
 
     if num_aug_splits > 1:
+        print("NUM AUG SPLITS:", num_aug_splits)
         dataset_train = AugMixDataset(dataset_train, num_splits=num_aug_splits)
 
     train_interpolation = args.train_interpolation
@@ -653,6 +654,7 @@ def main():
         pin_memory=args.pin_mem,
         use_multi_epochs_loader=args.use_multi_epochs_loader
     )
+    print("loader train len:", len(loader_train))
 
     eval_dir = os.path.join(args.data, 'val')
     if not os.path.isdir(eval_dir):
@@ -676,6 +678,7 @@ def main():
         crop_pct=data_config['crop_pct'],
         pin_memory=args.pin_mem,
     )
+    print("loader eval len:", len(loader_eval))
 
     if args.jsd:
         assert num_aug_splits > 1  # JSD only valid with aug splits set
