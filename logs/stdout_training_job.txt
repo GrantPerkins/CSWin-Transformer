@@ -20,5 +20,15 @@ patch_torch_functions  : True
 keep_batchnorm_fp32    : None
 master_weights         : None
 loss_scale             : dynamic
-loader train len: 1
-loader eval len: 1
+loader train len: 20
+loader eval len: 7
+Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 32768.0
+Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 32768.0
+Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 32768.0
+Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 32768.0
+Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 32768.0
+Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 32768.0
+Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 16384.0
+Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 32768.0
+Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 16384.0
+{'Model': ['CSWin'], 'Accuracy': [0.776255707762557], 'F1-Score': [0.7786592650961108], 'Sensitivity': [0.7717955957086392], 'Specificity': [0.9241345295289325], 'TPR': [0.7717955957086392], 'FPR': [0.45311521811521815], 'PPV': [0.7942006741302516], 'NPV': [0.9254331922256589]}
