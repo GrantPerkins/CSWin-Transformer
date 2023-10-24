@@ -19,6 +19,7 @@ import models
 import torch
 import torch.nn as nn
 import torchvision.utils
+from torchvision.transforms import v2
 from torch.nn.parallel import DistributedDataParallel as NativeDDP
 
 from timm.data import Dataset, create_loader, resolve_data_config, Mixup, FastCollateMixup, AugMixDataset
@@ -598,11 +599,16 @@ def main():
     if args.local_rank == 0:
         _logger.info('Scheduled epochs: {}'.format(num_epochs))
 
+    transform = v2.Compose([
+        v2.RandomHorizontalFlip(p=0.5),
+        v2.RandomVerticalFlip(p=0.5)
+    ])
+
     train_dir = os.path.join(args.data, 'train')
     if not os.path.exists(train_dir):
         _logger.error('Training folder does not exist at: {}'.format(train_dir))
         exit(1)
-    dataset_train = McDataset(args.data, './dataset/piid_name_train.txt', 'train')
+    dataset_train = McDataset(args.data, './dataset/piid_name_train.txt', 'train', transform=transform)
 
     collate_fn = None
     mixup_fn = None
@@ -662,7 +668,7 @@ def main():
         if not os.path.isdir(eval_dir):
             _logger.error('Validation folder does not exist at: {}'.format(eval_dir))
             exit(1)
-    dataset_eval = McDataset(args.data, './dataset/piid_name_val.txt', 'val')
+    dataset_eval = McDataset(args.data, './dataset/piid_name_val.txt', 'val', transform=transform)
 
     loader_eval = create_loader(
         dataset_eval,
@@ -761,7 +767,7 @@ def main():
     if best_metric is not None:
         _logger.info('*** Best metric: {0} (epoch {1})'.format(best_metric, best_epoch))
 
-        dataset_test = McDataset(args.data, './dataset/piid_name_test.txt', 'test')
+        dataset_test = McDataset(args.data, './dataset/piid_name_test.txt', 'test', transform=transform)
         loader_test = create_loader(
             dataset_test,
             input_size=data_config['input_size'],
@@ -870,7 +876,7 @@ def train_epoch(
             output = output[0]
         output = output.argmax(axis=1).cpu().numpy()
         target = target.argmax(axis=1).cpu().numpy()
-        acc1 = accuracy_score(target, output)
+        acc1 = accuracy_score(target, output)*100
 
         torch.cuda.synchronize()
 
@@ -946,7 +952,7 @@ def train_epoch(
     if hasattr(optimizer, 'sync_lookahead'):
         optimizer.sync_lookahead()
 
-    return OrderedDict([('loss', losses_m.avg), ("train_top1", top1_m.avg)])
+    return OrderedDict([('loss', losses_m.avg), ("top1", top1_m.avg)])
 
 
 def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix=''):
