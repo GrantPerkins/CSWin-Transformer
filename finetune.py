@@ -598,7 +598,7 @@ def main():
     if args.local_rank == 0:
         _logger.info('Scheduled epochs: {}'.format(num_epochs))
 
-    for child in model.children()[:-1]:
+    for child in [*model.children()][:-1]:
         for param in child.parameters():
             param.requires_grad = False
 
