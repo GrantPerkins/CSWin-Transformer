@@ -597,237 +597,235 @@ def main():
 
     if args.local_rank == 0:
         _logger.info('Scheduled epochs: {}'.format(num_epochs))
-    print("Modules:")
-    for child in model.children():
-        print(child)
 
-    # train_dir = os.path.join(args.data, 'train')
-    # if not os.path.exists(train_dir):
-    #     _logger.error('Training folder does not exist at: {}'.format(train_dir))
-    #     exit(1)
-    # dataset_train = McDataset(args.data, './dataset/piid_name_train.txt', 'train')
-    #
-    # collate_fn = None
-    # mixup_fn = None
-    # mixup_active = args.mixup > 0 or args.cutmix > 0. or args.cutmix_minmax is not None
-    # if mixup_active:
-    #     mixup_args = dict(
-    #         mixup_alpha=args.mixup, cutmix_alpha=args.cutmix, cutmix_minmax=args.cutmix_minmax,
-    #         prob=args.mixup_prob, switch_prob=args.mixup_switch_prob, mode=args.mixup_mode,
-    #         label_smoothing=args.smoothing, num_classes=args.num_classes)
-    #     if args.prefetcher:
-    #         assert not num_aug_splits  # collate conflict (need to support deinterleaving in collate mixup)
-    #         collate_fn = FastCollateMixup(**mixup_args)
-    #     else:
-    #         mixup_fn = Mixup(**mixup_args)
-    #
-    # if num_aug_splits > 1:
-    #     print("NUM AUG SPLITS:", num_aug_splits)
-    #     dataset_train = AugMixDataset(dataset_train, num_splits=num_aug_splits)
+    for child in model.children()[:-1]:
+        for param in child.parameters():
+            param.requires_grad = False
 
-    # train_interpolation = args.train_interpolation
-    # if args.no_aug or not train_interpolation:
-    #     train_interpolation = data_config['interpolation']
-    # if args.aa == 'None':
-    #     args.aa = None
-    # loader_train = create_loader(
-    #     dataset_train,
-    #     input_size=data_config['input_size'],
-    #     batch_size=args.batch_size,
-    #     is_training=True,
-    #     use_prefetcher=args.prefetcher,
-    #     no_aug=args.no_aug,
-    #     re_prob=args.reprob,
-    #     re_mode=args.remode,
-    #     re_count=args.recount,
-    #     re_split=args.resplit,
-    #     scale=args.scale,
-    #     ratio=args.ratio,
-    #     hflip=args.hflip,
-    #     vflip=args.vflip,
-    #     color_jitter=args.color_jitter,
-    #     auto_augment=args.aa,
-    #     num_aug_splits=num_aug_splits,
-    #     interpolation=train_interpolation,
-    #     mean=data_config['mean'],
-    #     std=data_config['std'],
-    #     num_workers=args.workers,
-    #     distributed=args.distributed,
-    #     collate_fn=collate_fn,
-    #     pin_memory=args.pin_mem,
-    #     use_multi_epochs_loader=args.use_multi_epochs_loader
-    # )
-    # print("loader train len:", len(loader_train))
-    #
-    # eval_dir = os.path.join(args.data, 'val')
-    # if not os.path.isdir(eval_dir):
-    #     eval_dir = os.path.join(args.data, 'validation')
-    #     if not os.path.isdir(eval_dir):
-    #         _logger.error('Validation folder does not exist at: {}'.format(eval_dir))
-    #         exit(1)
-    # dataset_eval = McDataset(args.data, './dataset/piid_name_val.txt', 'val')
-    #
-    # loader_eval = create_loader(
-    #     dataset_eval,
-    #     input_size=data_config['input_size'],
-    #     batch_size=args.validation_batch_size_multiplier * args.batch_size,
-    #     is_training=False,
-    #     use_prefetcher=args.prefetcher,
-    #     interpolation=data_config['interpolation'],
-    #     mean=data_config['mean'],
-    #     std=data_config['std'],
-    #     num_workers=args.workers,
-    #     distributed=args.distributed,
-    #     crop_pct=data_config['crop_pct'],
-    #     pin_memory=args.pin_mem,
-    # )
-    # print("loader eval len:", len(loader_eval))
-    #
-    # if args.jsd:
-    #     assert num_aug_splits > 1  # JSD only valid with aug splits set
-    #     train_loss_fn = JsdCrossEntropy(num_splits=num_aug_splits, smoothing=args.smoothing).cuda()
-    # elif mixup_active:
-    #     # smoothing is handled with mixup target transform
-    #     train_loss_fn = SoftTargetCrossEntropy().cuda()
-    # elif args.smoothing:
-    #     train_loss_fn = LabelSmoothingCrossEntropy(smoothing=args.smoothing).cuda()
-    # else:
-    #     train_loss_fn = nn.CrossEntropyLoss().cuda()
-    # validate_loss_fn = nn.CrossEntropyLoss().cuda()
-    #
-    # eval_metric = args.eval_metric
-    # best_metric = None
-    # best_epoch = None
-    # best_model = None
-    #
-    # if args.eval_checkpoint:  # evaluate the model
-    #     load_checkpoint(model, args.eval_checkpoint, args.model_ema)
-    #     val_metrics = validate(model, loader_eval, validate_loss_fn, args)
-    #     print(f"Top-1 accuracy of the model is: {val_metrics['top1']:.1f}%")
-    #     return
-    #
-    # saver = None
-    # output_dir = ''
-    # if args.local_rank == 0:
-    #     output_base = args.output if args.output else './output'
-    #     exp_name = '-'.join([
-    #         datetime.now().strftime("%Y%m%d-%H%M%S"),
-    #         args.model,
-    #         str(data_config['input_size'][-1])
-    #     ])
-    #     output_dir = get_outdir(output_base, 'finetune', exp_name)
-    #     decreasing = True if eval_metric == 'loss' else False
-    #     saver = CheckpointSaver(
-    #         model=model, optimizer=optimizer, args=args, model_ema=model_ema, amp_scaler=loss_scaler,
-    #         checkpoint_dir=output_dir, recovery_dir=output_dir, decreasing=decreasing)
-    #     with open(os.path.join(output_dir, 'args.yaml'), 'w') as f:
-    #         f.write(args_text)
-    # try:  # train the model
-    #     for epoch in range(start_epoch, num_epochs):
-    #         if args.distributed:
-    #             loader_train.sampler.set_epoch(epoch)
-    #         train_metrics = train_epoch(
-    #             epoch, model, loader_train, optimizer, train_loss_fn, args,
-    #             lr_scheduler=lr_scheduler, saver=saver, output_dir=output_dir,
-    #             amp_autocast=amp_autocast, loss_scaler=loss_scaler, model_ema=model_ema, mixup_fn=mixup_fn)
-    #         if args.distributed and args.dist_bn in ('broadcast', 'reduce'):
-    #             if args.local_rank == 0:
-    #                 _logger.info("Distributing BatchNorm running means and vars")
-    #             distribute_bn(model, args.world_size, args.dist_bn == 'reduce')
-    #
-    #         eval_metrics = validate(model, loader_eval, validate_loss_fn, args, amp_autocast=amp_autocast)
-    #
-    #         if model_ema is not None and not args.model_ema_force_cpu:
-    #             if args.distributed and args.dist_bn in ('broadcast', 'reduce'):
-    #                 distribute_bn(model_ema, args.world_size, args.dist_bn == 'reduce')
-    #             ema_eval_metrics = validate(
-    #                 model_ema.ema, loader_eval, validate_loss_fn, args, amp_autocast=amp_autocast, log_suffix=' (EMA)')
-    #             eval_metrics = ema_eval_metrics
-    #
-    #         if lr_scheduler is not None:
-    #             # step LR for next epoch
-    #             lr_scheduler.step(epoch + 1, eval_metrics[eval_metric])
-    #
-    #         update_summary(
-    #             epoch, train_metrics, eval_metrics, os.path.join(output_dir, 'summary.csv'),
-    #             write_header=best_metric is None)
-    #
-    #         if saver is not None:
-    #             # save proper checkpoint with eval metric
-    #             save_metric = eval_metrics[eval_metric]
-    #             best_metric, best_epoch = saver.save_checkpoint(epoch, metric=save_metric)
-    #             if epoch == best_epoch:
-    #                 best_model = copy.deepcopy(model)
-    # except KeyboardInterrupt:
-    #     pass
-    #
-    # if best_metric is not None:
-    #     _logger.info('*** Best metric: {0} (epoch {1})'.format(best_metric, best_epoch))
-    #
-    #     dataset_test = McDataset(args.data, './dataset/piid_name_test.txt', 'test')
-    #     loader_test = create_loader(
-    #         dataset_test,
-    #         input_size=data_config['input_size'],
-    #         batch_size=args.validation_batch_size_multiplier * args.batch_size,
-    #         is_training=False,
-    #         use_prefetcher=args.prefetcher,
-    #         interpolation=data_config['interpolation'],
-    #         mean=data_config['mean'],
-    #         std=data_config['std'],
-    #         num_workers=args.workers,
-    #         distributed=args.distributed,
-    #         crop_pct=data_config['crop_pct'],
-    #         pin_memory=args.pin_mem,
-    #     )
-    #
-    #     m = Metrics("CSWin", ["1", "2", "3", "4"])
-    #     model = best_model
-    #
-    #     model.eval()
-    #
-    #     end = time.time()
-    #     last_idx = len(loader_test) - 1
-    #     with torch.no_grad():
-    #         all_pred = []
-    #         all_truth = []
-    #         for batch_idx, (input, target) in enumerate(loader_test):
-    #             last_batch = batch_idx == last_idx
-    #             if not args.prefetcher:
-    #                 input = input.cuda()
-    #                 target = target.cuda()
-    #             if args.channels_last:
-    #                 input = input.contiguous(memory_format=torch.channels_last)
-    #
-    #             with amp_autocast():
-    #                 output = model(input)
-    #             if isinstance(output, (tuple, list)):
-    #                 output = output[0]
-    #
-    #             # augmentation reduction
-    #             reduce_factor = args.tta
-    #             if reduce_factor > 1:
-    #                 output = output.unfold(0, reduce_factor, reduce_factor).mean(dim=2)
-    #                 target = target[0:target.size(0):reduce_factor]
-    #
-    #             if args.distributed:
-    #                 acc1 = reduce_tensor(acc1, args.world_size)
-    #                 acc5 = reduce_tensor(acc5, args.world_size)
-    #                 tmp_out = reduce_tensor(output, args.world_size)
-    #                 tmp_tar = reduce_tensor(target, args.world_size)
-    #             else:
-    #                 tmp_out = output
-    #                 tmp_tar = target
-    #
-    #             torch.cuda.synchronize()
-    #
-    #             # print("output", tmp_out.cpu().numpy().shape)
-    #             # print("target", tmp_tar.cpu().numpy().shape)
-    #             # print()
-    #             predictions = tmp_out.cpu().numpy().argmax(axis=1).tolist()
-    #             labels = tmp_tar.cpu().numpy().tolist()
-    #             all_pred.extend(predictions)
-    #             all_truth.extend(labels)
-    #     m.evaluate(all_truth, all_pred)
+    train_dir = os.path.join(args.data, 'train')
+    if not os.path.exists(train_dir):
+        _logger.error('Training folder does not exist at: {}'.format(train_dir))
+        exit(1)
+    dataset_train = McDataset(args.data, './dataset/piid_name_train.txt', 'train')
+
+    collate_fn = None
+    mixup_fn = None
+    mixup_active = args.mixup > 0 or args.cutmix > 0. or args.cutmix_minmax is not None
+    if mixup_active:
+        mixup_args = dict(
+            mixup_alpha=args.mixup, cutmix_alpha=args.cutmix, cutmix_minmax=args.cutmix_minmax,
+            prob=args.mixup_prob, switch_prob=args.mixup_switch_prob, mode=args.mixup_mode,
+            label_smoothing=args.smoothing, num_classes=args.num_classes)
+        if args.prefetcher:
+            assert not num_aug_splits  # collate conflict (need to support deinterleaving in collate mixup)
+            collate_fn = FastCollateMixup(**mixup_args)
+        else:
+            mixup_fn = Mixup(**mixup_args)
+
+    if num_aug_splits > 1:
+        print("NUM AUG SPLITS:", num_aug_splits)
+        dataset_train = AugMixDataset(dataset_train, num_splits=num_aug_splits)
+
+    train_interpolation = args.train_interpolation
+    if args.no_aug or not train_interpolation:
+        train_interpolation = data_config['interpolation']
+    if args.aa == 'None':
+        args.aa = None
+    loader_train = create_loader(
+        dataset_train,
+        input_size=data_config['input_size'],
+        batch_size=args.batch_size,
+        is_training=True,
+        use_prefetcher=args.prefetcher,
+        no_aug=args.no_aug,
+        re_prob=args.reprob,
+        re_mode=args.remode,
+        re_count=args.recount,
+        re_split=args.resplit,
+        scale=args.scale,
+        ratio=args.ratio,
+        hflip=args.hflip,
+        vflip=args.vflip,
+        color_jitter=args.color_jitter,
+        auto_augment=args.aa,
+        num_aug_splits=num_aug_splits,
+        interpolation=train_interpolation,
+        mean=data_config['mean'],
+        std=data_config['std'],
+        num_workers=args.workers,
+        distributed=args.distributed,
+        collate_fn=collate_fn,
+        pin_memory=args.pin_mem,
+        use_multi_epochs_loader=args.use_multi_epochs_loader
+    )
+    print("loader train len:", len(loader_train))
+
+    eval_dir = os.path.join(args.data, 'val')
+    if not os.path.isdir(eval_dir):
+        eval_dir = os.path.join(args.data, 'validation')
+        if not os.path.isdir(eval_dir):
+            _logger.error('Validation folder does not exist at: {}'.format(eval_dir))
+            exit(1)
+    dataset_eval = McDataset(args.data, './dataset/piid_name_val.txt', 'val')
+
+    loader_eval = create_loader(
+        dataset_eval,
+        input_size=data_config['input_size'],
+        batch_size=args.validation_batch_size_multiplier * args.batch_size,
+        is_training=False,
+        use_prefetcher=args.prefetcher,
+        interpolation=data_config['interpolation'],
+        mean=data_config['mean'],
+        std=data_config['std'],
+        num_workers=args.workers,
+        distributed=args.distributed,
+        crop_pct=data_config['crop_pct'],
+        pin_memory=args.pin_mem,
+    )
+    print("loader eval len:", len(loader_eval))
+
+    if args.jsd:
+        assert num_aug_splits > 1  # JSD only valid with aug splits set
+        train_loss_fn = JsdCrossEntropy(num_splits=num_aug_splits, smoothing=args.smoothing).cuda()
+    elif mixup_active:
+        # smoothing is handled with mixup target transform
+        train_loss_fn = SoftTargetCrossEntropy().cuda()
+    elif args.smoothing:
+        train_loss_fn = LabelSmoothingCrossEntropy(smoothing=args.smoothing).cuda()
+    else:
+        train_loss_fn = nn.CrossEntropyLoss().cuda()
+    validate_loss_fn = nn.CrossEntropyLoss().cuda()
+
+    eval_metric = args.eval_metric
+    best_metric = None
+    best_epoch = None
+    best_model = None
+
+    if args.eval_checkpoint:  # evaluate the model
+        load_checkpoint(model, args.eval_checkpoint, args.model_ema)
+        val_metrics = validate(model, loader_eval, validate_loss_fn, args)
+        print(f"Top-1 accuracy of the model is: {val_metrics['top1']:.1f}%")
+        return
+
+    saver = None
+    output_dir = ''
+    if args.local_rank == 0:
+        output_base = args.output if args.output else './output'
+        exp_name = '-'.join([
+            datetime.now().strftime("%Y%m%d-%H%M%S"),
+            args.model,
+            str(data_config['input_size'][-1])
+        ])
+        output_dir = get_outdir(output_base, 'finetune', exp_name)
+        decreasing = True if eval_metric == 'loss' else False
+        saver = CheckpointSaver(
+            model=model, optimizer=optimizer, args=args, model_ema=model_ema, amp_scaler=loss_scaler,
+            checkpoint_dir=output_dir, recovery_dir=output_dir, decreasing=decreasing)
+        with open(os.path.join(output_dir, 'args.yaml'), 'w') as f:
+            f.write(args_text)
+    try:  # train the model
+        for epoch in range(start_epoch, num_epochs):
+            if args.distributed:
+                loader_train.sampler.set_epoch(epoch)
+            train_metrics = train_epoch(
+                epoch, model, loader_train, optimizer, train_loss_fn, args,
+                lr_scheduler=lr_scheduler, saver=saver, output_dir=output_dir,
+                amp_autocast=amp_autocast, loss_scaler=loss_scaler, model_ema=model_ema, mixup_fn=mixup_fn)
+            if args.distributed and args.dist_bn in ('broadcast', 'reduce'):
+                if args.local_rank == 0:
+                    _logger.info("Distributing BatchNorm running means and vars")
+                distribute_bn(model, args.world_size, args.dist_bn == 'reduce')
+
+            eval_metrics = validate(model, loader_eval, validate_loss_fn, args, amp_autocast=amp_autocast)
+
+            if model_ema is not None and not args.model_ema_force_cpu:
+                if args.distributed and args.dist_bn in ('broadcast', 'reduce'):
+                    distribute_bn(model_ema, args.world_size, args.dist_bn == 'reduce')
+                ema_eval_metrics = validate(
+                    model_ema.ema, loader_eval, validate_loss_fn, args, amp_autocast=amp_autocast, log_suffix=' (EMA)')
+                eval_metrics = ema_eval_metrics
+
+            if lr_scheduler is not None:
+                # step LR for next epoch
+                lr_scheduler.step(epoch + 1, eval_metrics[eval_metric])
+
+            update_summary(
+                epoch, train_metrics, eval_metrics, os.path.join(output_dir, 'summary.csv'),
+                write_header=best_metric is None)
+
+            if saver is not None:
+                # save proper checkpoint with eval metric
+                save_metric = eval_metrics[eval_metric]
+                best_metric, best_epoch = saver.save_checkpoint(epoch, metric=save_metric)
+                if epoch == best_epoch:
+                    best_model = copy.deepcopy(model)
+    except KeyboardInterrupt:
+        pass
+
+    if best_metric is not None:
+        _logger.info('*** Best metric: {0} (epoch {1})'.format(best_metric, best_epoch))
+
+        dataset_test = McDataset(args.data, './dataset/piid_name_test.txt', 'test')
+        loader_test = create_loader(
+            dataset_test,
+            input_size=data_config['input_size'],
+            batch_size=args.validation_batch_size_multiplier * args.batch_size,
+            is_training=False,
+            use_prefetcher=args.prefetcher,
+            interpolation=data_config['interpolation'],
+            mean=data_config['mean'],
+            std=data_config['std'],
+            num_workers=args.workers,
+            distributed=args.distributed,
+            crop_pct=data_config['crop_pct'],
+            pin_memory=args.pin_mem,
+        )
+
+        m = Metrics("CSWin-tiny-head", ["1", "2", "3", "4"])
+        model = best_model
+
+        model.eval()
+
+        end = time.time()
+        last_idx = len(loader_test) - 1
+        with torch.no_grad():
+            all_pred = []
+            all_truth = []
+            for batch_idx, (input, target) in enumerate(loader_test):
+                last_batch = batch_idx == last_idx
+                if not args.prefetcher:
+                    input = input.cuda()
+                    target = target.cuda()
+                if args.channels_last:
+                    input = input.contiguous(memory_format=torch.channels_last)
+
+                with amp_autocast():
+                    output = model(input)
+                if isinstance(output, (tuple, list)):
+                    output = output[0]
+
+                # augmentation reduction
+                reduce_factor = args.tta
+                if reduce_factor > 1:
+                    output = output.unfold(0, reduce_factor, reduce_factor).mean(dim=2)
+                    target = target[0:target.size(0):reduce_factor]
+
+                if args.distributed:
+                    acc1 = reduce_tensor(acc1, args.world_size)
+                    acc5 = reduce_tensor(acc5, args.world_size)
+                    tmp_out = reduce_tensor(output, args.world_size)
+                    tmp_tar = reduce_tensor(target, args.world_size)
+                else:
+                    tmp_out = output
+                    tmp_tar = target
+
+                torch.cuda.synchronize()
+
+                predictions = tmp_out.cpu().numpy().argmax(axis=1).tolist()
+                labels = tmp_tar.cpu().numpy().tolist()
+                all_pred.extend(predictions)
+                all_truth.extend(labels)
+        m.evaluate(all_truth, all_pred)
 
 
 def train_epoch(
