@@ -598,7 +598,8 @@ def main():
     if args.local_rank == 0:
         _logger.info('Scheduled epochs: {}'.format(num_epochs))
     print("Modules:")
-    print(*model.modules())
+    for child in model.children():
+        print(child)
 
     # train_dir = os.path.join(args.data, 'train')
     # if not os.path.exists(train_dir):
