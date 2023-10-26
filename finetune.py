@@ -601,7 +601,7 @@ def main():
     # for child in model.children():
     #     print(child)
 
-    for child in [*model.children()][1:]:
+    for child in [*model.children()][1:-1]:
         for param in child.parameters():
             param.requires_grad = False
     # return
