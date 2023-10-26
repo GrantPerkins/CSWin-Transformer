@@ -24,4 +24,4 @@ loader train len: 10
 loader eval len: 4
 Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 32768.0
 Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 32768.0
-{'Model': ['CSWin_64_24322_small_224'], 'Accuracy': [0.776255707762557], 'F1-Score': [0.776247848537005], 'Sensitivity': [0.7717955957086392], 'Specificity': [0.9241356592089709], 'TPR': [0.7717955957086392], 'FPR': [0.474901185770751], 'PPV': [0.7888963963963964], 'NPV': [0.9259529087955378]}
+{'Model': ['CSWin_96_24322_base_224'], 'Accuracy': [0.776255707762557], 'F1-Score': [0.7760207371271984], 'Sensitivity': [0.7723727962858398], 'Specificity': [0.9241367888890094], 'TPR': [0.7723727962858398], 'FPR': [0.482158206087572], 'PPV': [0.7878349391237658], 'NPV': [0.9259826060176735]}
