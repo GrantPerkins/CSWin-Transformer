@@ -598,10 +598,13 @@ def main():
     if args.local_rank == 0:
         _logger.info('Scheduled epochs: {}'.format(num_epochs))
 
-    for child in [*model.children()][:-1]:
-        for param in child.parameters():
-            param.requires_grad = False
+    for child in model.children():
+        print(child)
 
+    # for child in [*model.children()][:-1]:
+    #     for param in child.parameters():
+    #         param.requires_grad = False
+    return
     train_dir = os.path.join(args.data, 'train')
     if not os.path.exists(train_dir):
         _logger.error('Training folder does not exist at: {}'.format(train_dir))
