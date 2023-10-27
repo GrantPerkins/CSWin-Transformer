@@ -22,5 +22,6 @@ master_weights         : None
 loss_scale             : dynamic
 loader train len: 10
 loader eval len: 4
-Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 65536.0
-{'Model': ['CSWin-tiny-head'], 'Accuracy': [0.3059360730593607], 'F1-Score': [0.2803296968917124], 'Sensitivity': [0.29540435410000626], 'Specificity': [0.7652540695593706], 'TPR': [0.29540435410000626], 'FPR': [0.46229247669278817], 'PPV': [0.30748314185814185], 'NPV': [0.7664141362907431]}
+Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 32768.0
+Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 32768.0
+{'Model': ['CSWin-tiny-head'], 'Accuracy': [0.7351598173515982], 'F1-Score': [0.7360276305315896], 'Sensitivity': [0.7314637053767488], 'Specificity': [0.9105736244112108], 'TPR': [0.7314637053767488], 'FPR': [0.47502104377104376], 'PPV': [0.7457610764060444], 'NPV': [0.9117284593847731]}
