@@ -29,7 +29,7 @@ from timm.loss import LabelSmoothingCrossEntropy, SoftTargetCrossEntropy, JsdCro
 from timm.scheduler import create_scheduler
 from timm.utils import ApexScaler, NativeScaler
 from checkpoint_saver import CheckpointSaver
-from labeled_memcached_dataset import FoldMcDataset
+from labeled_memcached_dataset import FoldMcDataset, McDataset
 import torch.optim as optim
 from metrics import Metrics
 from sklearn.metrics import accuracy_score
