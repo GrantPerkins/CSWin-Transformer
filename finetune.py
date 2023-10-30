@@ -785,7 +785,7 @@ def main():
             pin_memory=args.pin_mem,
         )
 
-        m = Metrics(args.model, ["1", "2", "3", "4"])
+        m = Metrics(f"{args.model}_fold_{args.val_fold}", ["1", "2", "3", "4"])
         model = best_model
 
         model.eval()

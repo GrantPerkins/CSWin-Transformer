@@ -22,7 +22,8 @@ class Metrics:
         self.classes = len(self.labels)
 
     def evaluate(self, truths, probabilities):
-        predictions = probabilities.argmax(axis=1)
+
+        predictions = np.array(probabilities).argmax(axis=1)
         # print(truths, predictions)
         # summary statistics
         accuracy = sklearn.metrics.accuracy_score(truths, predictions)
