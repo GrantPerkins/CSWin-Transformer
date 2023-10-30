@@ -43,6 +43,7 @@ class Metrics:
         fpr = np.mean(FP / (FP + FN))
         ppv = np.mean(TP / (TP + FP))
         npv = np.mean(TN / (TN + FN))
+        print(probabilities)
         auc = sklearn.metrics.roc_auc_score(
             truths,
             probabilities,
