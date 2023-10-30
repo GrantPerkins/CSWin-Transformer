@@ -26,7 +26,6 @@ class Metrics:
             row = [j-min(row) for j in row]
             row = [j/sum(row) for j in row]
             # (j - min) / (max - min)
-            print(row)
             probabilities[i] = row
 
         predictions = np.array(probabilities).argmax(axis=1)
