@@ -23,10 +23,9 @@ class Metrics:
 
     def evaluate(self, truths, probabilities):
         for i, row in enumerate(probabilities):
+            row = [j-min(row) for j in row]
+            row = [j/sum(row) for j in row]
             # (j - min) / (max - min)
-            mi = min(row)
-            ma = max(row)
-            row = [((j-mi)/(ma-mi)) / 2 for j in row]
             print(row)
             probabilities[i] = row
 
