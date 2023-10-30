@@ -27,6 +27,7 @@ class Metrics:
             mi = min(row)
             ma = max(row)
             row = [((j-mi)/(ma-mi)) / 4 for j in row]
+            print(row)
             probabilities[i] = row
 
         predictions = np.array(probabilities).argmax(axis=1)
@@ -49,7 +50,7 @@ class Metrics:
         fpr = np.mean(FP / (FP + FN))
         ppv = np.mean(TP / (TP + FP))
         npv = np.mean(TN / (TN + FN))
-        print(probabilities)
+        # print(probabilities)
         auc = sklearn.metrics.roc_auc_score(
             truths,
             probabilities,
