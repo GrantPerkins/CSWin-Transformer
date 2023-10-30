@@ -24,7 +24,7 @@ class Metrics:
     def evaluate(self, truths, probabilities):
         for i, row in enumerate(probabilities):
             row = [((j-min(row)) / (max(row) - min(row)))/4 for j in row]
-            row[0] -= 1-sum(row)
+            # row[0] -= 1-sum(row)
             probabilities[i] = row
 
         predictions = np.array(probabilities).argmax(axis=1)
