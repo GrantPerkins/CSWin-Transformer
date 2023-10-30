@@ -785,7 +785,7 @@ def main():
             pin_memory=args.pin_mem,
         )
 
-        m = Metrics("CSWin", ["1", "2", "3", "4"])
+        m = Metrics(args.model, ["1", "2", "3", "4"])
         model = best_model
 
         model.eval()
@@ -828,9 +828,9 @@ def main():
                 # print("output", tmp_out.cpu().numpy().shape)
                 # print("target", tmp_tar.cpu().numpy().shape)
                 # print()
-                predictions = tmp_out.cpu().numpy().argmax(axis=1).tolist()
+                predictions_probs = tmp_out.cpu().numpy().tolist()
                 labels = tmp_tar.cpu().numpy().tolist()
-                all_pred.extend(predictions)
+                all_pred.extend(predictions_probs)
                 all_truth.extend(labels)
         m.evaluate(all_truth, all_pred)
 

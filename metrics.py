@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 
-
 class Metrics:
     """
     Metrics to calculate: accuracy, macro f1, auc, sensitivity, specificity, tpr, fpr
@@ -17,17 +16,20 @@ class Metrics:
         self.base_path = f"model_metrics/{model_name}"
         Path(self.base_path).mkdir(exist_ok=True, parents=True)
         self.df = {"Model": [model_name], "Accuracy": [], "F1-Score": [], "Sensitivity": [],
-                   "Specificity": [], "TPR": [], "FPR": [], "PPV": [], "NPV":[]}
+                   "Specificity": [], "TPR": [], "FPR": [], "PPV": [], "NPV": [], "AUC": [], "acc_1": [], "acc_2": [], "acc_3": [],
+                   "acc_4": []}
         self.labels = labels
         self.classes = len(self.labels)
 
-    def evaluate(self, truths, predictions):
+    def evaluate(self, truths, probabilities):
+        predictions = probabilities.argmax(axis=1)
         # print(truths, predictions)
         # summary statistics
         accuracy = sklearn.metrics.accuracy_score(truths, predictions)
         f1 = sklearn.metrics.f1_score(truths, predictions, average="macro")
 
         matrix = sklearn.metrics.confusion_matrix(truths, predictions)
+        per_class_accuracy = (matrix.astype('float') / matrix.sum(axis=1)[:, np.newaxis]).diagonal()
         FP = matrix.sum(axis=0) - np.diag(matrix)
         FN = matrix.sum(axis=1) - np.diag(matrix)
         TP = np.diag(matrix)
@@ -40,6 +42,12 @@ class Metrics:
         fpr = np.mean(FP / (FP + FN))
         ppv = np.mean(TP / (TP + FP))
         npv = np.mean(TN / (TN + FN))
+        auc = sklearn.metrics.roc_auc_score(
+            truths,
+            probabilities,
+            multi_class="ovr",
+            average="micro",
+        )
 
         self.df["Accuracy"].append(accuracy)
         self.df["F1-Score"].append(f1)
@@ -49,10 +57,12 @@ class Metrics:
         self.df["FPR"].append(fpr)
         self.df["PPV"].append(ppv)
         self.df["NPV"].append(npv)
+        self.df["AUC"].append(auc)
+        for i, acc in enumerate(per_class_accuracy):
+            col = f"acc_{i+1}"
+            self.df[col].append(acc)
         print(self.df)
         self.create_metrics_df()
-
-
 
     def roc_auc(self, truths, probabilities):
         auc = sklearn.metrics.roc_auc_score(truths, probabilities, multi_class="ovr")
