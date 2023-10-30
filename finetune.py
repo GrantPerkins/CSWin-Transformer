@@ -769,7 +769,7 @@ def main():
     if best_metric is not None:
         _logger.info('*** Best metric: {0} (epoch {1})'.format(best_metric, best_epoch))
 
-        dataset_test = McDataset(args.data, './dataset/piid_name_test.txt', 'test')
+        dataset_test = McDataset("/home/gcperkins/full_size_pu", './dataset/piid_name_test.txt', 'test')
         loader_test = create_loader(
             dataset_test,
             input_size=data_config['input_size'],
