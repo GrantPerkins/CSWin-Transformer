@@ -54,7 +54,7 @@ class Metrics:
             truths,
             probabilities,
             multi_class="ovr",
-            average="micro",
+            average="macro",
         )
 
         self.df["Accuracy"].append(accuracy)
