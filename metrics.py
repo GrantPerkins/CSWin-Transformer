@@ -26,7 +26,7 @@ class Metrics:
             # (j - min) / (max - min)
             mi = min(row)
             ma = max(row)
-            row = [((j-mi)/(ma-mi)) / 4 for j in row]
+            row = [((j-mi)/(ma-mi)) / 2 for j in row]
             print(row)
             probabilities[i] = row
 
