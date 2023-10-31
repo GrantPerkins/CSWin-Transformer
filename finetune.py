@@ -971,7 +971,7 @@ def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix='')
 
 
 def test_model(args, model, loader, amp_autocast):
-    m = Metrics(f"{args.model}_fold_{args.val_fold}", ["1", "2", "3", "4"])
+    m = Metrics(f"{args.model}", ["1", "2", "3", "4"])
     end = time.time()
     last_idx = len(loader) - 1
     with torch.no_grad():
