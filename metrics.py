@@ -35,6 +35,12 @@ class Metrics:
         f1 = sklearn.metrics.f1_score(truths, predictions, average="macro")
 
         matrix = sklearn.metrics.confusion_matrix(truths, predictions)
+        disp = sklearn.metrics.ConfusionMatrixDisplay(confusion_matrix=matrix, display_labels =[1,2,3,4])
+        disp.plot()
+        plt.title("CSWin-tiny Confusion Matrix (n=500)")
+        plt.savefig(f"{self.base_path}/confusion.png")
+
+
         per_class_accuracy = (matrix.astype('float') / matrix.sum(axis=1)[:, np.newaxis]).diagonal()
         FP = matrix.sum(axis=0) - np.diag(matrix)
         FN = matrix.sum(axis=1) - np.diag(matrix)
