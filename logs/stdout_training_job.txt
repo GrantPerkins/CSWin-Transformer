@@ -22,6 +22,4 @@ master_weights         : None
 loss_scale             : dynamic
 loader train len: 10
 loader eval len: 4
-Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 32768.0
-Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 32768.0
-{'Model': ['CSWin_96_24322_base_224'], 'Accuracy': [0.776255707762557], 'F1-Score': [0.7760207371271984], 'Sensitivity': [0.7723727962858398], 'Specificity': [0.9241367888890094], 'TPR': [0.7723727962858398], 'FPR': [0.482158206087572], 'PPV': [0.7878349391237658], 'NPV': [0.9259826060176735]}
+{'Model': ['CSWin_64_12211_tiny_224'], 'Accuracy': [0.6484018264840182], 'F1-Score': [0.6338163083341892], 'Sensitivity': [0.6334917497960977], 'Specificity': [0.880668734433009], 'TPR': [0.6334917497960977], 'FPR': [0.4696657509157509], 'PPV': [0.6969083247334021], 'NPV': [0.8859551700991041], 'AUC': [0.8691323009009155], 'acc_1': [0.41304347826086957], 'acc_2': [0.7936507936507936], 'acc_3': [0.5272727272727272], 'acc_4': [0.8]}
