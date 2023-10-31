@@ -22,4 +22,6 @@ master_weights         : None
 loss_scale             : dynamic
 loader train len: 10
 loader eval len: 4
-{'Model': ['CSWin_64_12211_tiny_224'], 'Accuracy': [0.634703196347032], 'F1-Score': [0.6183618752675654], 'Sensitivity': [0.6189660580964929], 'Specificity': [0.8760955637013017], 'TPR': [0.6189660580964929], 'FPR': [0.4688587848932676], 'PPV': [0.6858309654070713], 'NPV': [0.8815462106386764], 'AUC': [0.866278645886488], 'acc_1': [0.391304347826087], 'acc_2': [0.7936507936507936], 'acc_3': [0.509090909090909], 'acc_4': [0.7818181818181819]}
+Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 65536.0
+Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 32768.0
+{'Model': ['CSWin_64_12211_tiny_224'], 'Accuracy': [0.7808219178082192], 'F1-Score': [0.7852425434427116], 'Sensitivity': [0.7818950373298199], 'Specificity': [0.9262865700022052], 'TPR': [0.7818950373298199], 'FPR': [0.46735785953177256], 'PPV': [0.7915275748379603], 'NPV': [0.9261828126707006], 'AUC': [0.9440348556703704], 'acc_1': [0.8043478260869565], 'acc_2': [0.7777777777777778], 'acc_3': [0.7454545454545455], 'acc_4': [0.8]}
