@@ -787,52 +787,9 @@ def main():
 
         m = Metrics(f"{args.model}_fold_{args.val_fold}", ["1", "2", "3", "4"])
         model = best_model
-
         model.eval()
 
-        end = time.time()
-        last_idx = len(loader_test) - 1
-        with torch.no_grad():
-            all_pred = []
-            all_truth = []
-            for batch_idx, (input, target) in enumerate(loader_test):
-                last_batch = batch_idx == last_idx
-                if not args.prefetcher:
-                    input = input.cuda()
-                    target = target.cuda()
-                if args.channels_last:
-                    input = input.contiguous(memory_format=torch.channels_last)
-
-                with amp_autocast():
-                    output = model(input)
-                if isinstance(output, (tuple, list)):
-                    output = output[0]
-
-                # augmentation reduction
-                reduce_factor = args.tta
-                if reduce_factor > 1:
-                    output = output.unfold(0, reduce_factor, reduce_factor).mean(dim=2)
-                    target = target[0:target.size(0):reduce_factor]
-
-                if args.distributed:
-                    acc1 = reduce_tensor(acc1, args.world_size)
-                    acc5 = reduce_tensor(acc5, args.world_size)
-                    tmp_out = reduce_tensor(output, args.world_size)
-                    tmp_tar = reduce_tensor(target, args.world_size)
-                else:
-                    tmp_out = output
-                    tmp_tar = target
-
-                torch.cuda.synchronize()
-
-                # print("output", tmp_out.cpu().numpy().shape)
-                # print("target", tmp_tar.cpu().numpy().shape)
-                # print()
-                predictions_probs = tmp_out.cpu().numpy().tolist()
-                labels = tmp_tar.cpu().numpy().tolist()
-                all_pred.extend(predictions_probs)
-                all_truth.extend(labels)
-        m.evaluate(all_truth, all_pred)
+        test_model(args, model, loader_eval)
 
 
 def train_epoch(
@@ -1024,6 +981,51 @@ def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix='')
 
     return metrics
 
+def test_model(args, model, loader):
+    m = Metrics(f"{args.model}_fold_{args.val_fold}", ["1", "2", "3", "4"])
+    end = time.time()
+    last_idx = len(loader) - 1
+    with torch.no_grad():
+        all_pred = []
+        all_truth = []
+        for batch_idx, (input, target) in enumerate(loader):
+            last_batch = batch_idx == last_idx
+            if not args.prefetcher:
+                input = input.cuda()
+                target = target.cuda()
+            if args.channels_last:
+                input = input.contiguous(memory_format=torch.channels_last)
+
+            with amp_autocast():
+                output = model(input)
+            if isinstance(output, (tuple, list)):
+                output = output[0]
+
+            # augmentation reduction
+            reduce_factor = args.tta
+            if reduce_factor > 1:
+                output = output.unfold(0, reduce_factor, reduce_factor).mean(dim=2)
+                target = target[0:target.size(0):reduce_factor]
+
+            if args.distributed:
+                acc1 = reduce_tensor(acc1, args.world_size)
+                acc5 = reduce_tensor(acc5, args.world_size)
+                tmp_out = reduce_tensor(output, args.world_size)
+                tmp_tar = reduce_tensor(target, args.world_size)
+            else:
+                tmp_out = output
+                tmp_tar = target
+
+            torch.cuda.synchronize()
+
+            # print("output", tmp_out.cpu().numpy().shape)
+            # print("target", tmp_tar.cpu().numpy().shape)
+            # print()
+            predictions_probs = tmp_out.cpu().numpy().tolist()
+            labels = tmp_tar.cpu().numpy().tolist()
+            all_pred.extend(predictions_probs)
+            all_truth.extend(labels)
+    m.evaluate(all_truth, all_pred)
 
 if __name__ == '__main__':
     main()
