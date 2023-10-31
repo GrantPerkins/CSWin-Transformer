@@ -16,6 +16,6 @@ bash finetune.sh 1 --data /home/gcperkins/full_size_pu --model CSWin_64_12211_ti
  --lr 2.5e-4 --min-lr 5e-8 --weight-decay 1e-8 --amp --img-size 224 \
  --warmup-epochs 0 --model-ema-decay 0.9996 \
  --finetune /home/gcperkins/CSWin-Transformer/cswin_tiny_224.pth \
- --epochs 5 --mixup 0.01 --cooldown-epochs 5 --interpolation bicubic \
+ --epochs 500 --mixup 0.01 --cooldown-epochs 5 --interpolation bicubic \
  --lr-scale 0.05 --drop-path 0.2 --cutmix 0.3 --use-chk --fine-22k --ema-finetune \
   --workers 1 --num-classes 4 --eval-metric loss
