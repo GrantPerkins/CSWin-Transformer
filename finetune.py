@@ -789,7 +789,7 @@ def main():
         model = best_model
         model.eval()
 
-        test_model(args, model, loader_eval)
+        test_model(args, model, loader_eval, amp_autocast)
 
 
 def train_epoch(
@@ -981,7 +981,7 @@ def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix='')
 
     return metrics
 
-def test_model(args, model, loader):
+def test_model(args, model, loader, amp_autocast):
     m = Metrics(f"{args.model}_fold_{args.val_fold}", ["1", "2", "3", "4"])
     end = time.time()
     last_idx = len(loader) - 1
