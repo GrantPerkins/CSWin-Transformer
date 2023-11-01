@@ -753,7 +753,7 @@ def grad(cam, model, loader, dataset, args, amp_autocast=suppress):
             img = np.array(img)/255
             print("input shape", input_t.shape)
             with amp_autocast():
-                result = cam(input_t)
+                result = cam(input_t).reshape((224, 224, 1))
             print("result shape", result.shape)
             name = Path(dataset.tmp_path).stem
             cam_image = show_cam_on_image(img, result)
