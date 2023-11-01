@@ -733,10 +733,10 @@ def grad(cam, model, loader, dataset, args):
     with torch.no_grad():
         for batch_idx, (input, target) in enumerate(loader):
             for i in range(len(target)):
-                t = int(target[i].cpu())
+                t = target[i].cpu()
                 input_t = input[i].cpu()
                 print(t)
-                dataset.__getitem__(target)
+                dataset.__getitem__(t)
                 print(dataset.tmp_path)
                 break
 
