@@ -735,7 +735,7 @@ def grad(cam, model, loader, dataset, args):
             for i in range(len(target)):
                 t = target[i]
                 input_t = input[i]
-                print(target)
+                print(t)
                 dataset.__getitem__(target)
                 print(dataset.tmp_path)
                 break
