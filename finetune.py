@@ -738,7 +738,10 @@ def grad(cam, model, loader, dataset, args):
         for batch_idx, (input, target) in enumerate(loader):
             for i in range(len(target)):
                 t = target[i].cpu()
-                input_t = input[i].reshape(1, *[map(int,input[i].cpu().numpy())])
+                shape = [1]
+                for j in input[i].cpu().numpy():
+                    shape.append(j)
+                input_t = input[i].reshape(shape)
                 print(t)
                 dataset.__getitem__(t)
                 print(dataset.tmp_path)
