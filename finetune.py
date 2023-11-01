@@ -721,7 +721,7 @@ def main():
         return
 
 def reshape_transform(tensor, height=16, width=16):
-    result = tensor.reshape(-1,
+    result = tensor.reshape(-1, 1,
         height, width)
 
     # Bring the channels to the first dimension,
