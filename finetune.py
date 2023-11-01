@@ -717,8 +717,8 @@ def main():
         # print([*model.children()][-3][0].mlp.fc1.size())
         target_layers = [[*model.children()][-5][20].norm2]
         print(target_layers[0])
-        cam = GradCAM(model=model, target_layers=target_layers, reshape_transform=reshape_transform)
-        grad(cam, model, loader_eval, dataset_eval, args)
+        # cam = GradCAM(model=model, target_layers=target_layers, reshape_transform=reshape_transform)
+        grad(model, loader_eval, dataset_eval, args)
 
         return
 
@@ -731,7 +731,7 @@ def reshape_transform(tensor, height=16, width=16):
     result = result.transpose(2, 3).transpose(1, 2)
     return result
 
-def grad(cam, model, loader, dataset, args, amp_autocast=suppress):
+def grad(model, loader, dataset, args, amp_autocast=suppress):
     model.eval()
 
     end = time.time()
@@ -757,7 +757,7 @@ def grad(cam, model, loader, dataset, args, amp_autocast=suppress):
                 print(result.shape)
                 result[:, torch.argmax(result,dim=1)].backward()
                 gradients = model.get_activations_gradient()
-                activations = model.get_activations(input_t)
+                activations = model.get_activations()
 
             break
         break

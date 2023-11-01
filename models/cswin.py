@@ -255,6 +255,7 @@ class CSWinTransformer(nn.Module):
         self.num_features = self.embed_dim = embed_dim  # num_features for consistency with other models
         heads=num_heads
         self.gradients = None
+        self.activations = None
 
         self.stage1_conv_embed = nn.Sequential(
             nn.Conv2d(in_chans, embed_dim, 7, 4, 2),
@@ -294,8 +295,9 @@ class CSWinTransformer(nn.Module):
             for i in range(depth[2])])
 
         self.stage3 = nn.ModuleList(temp_stage3)
-        self.stage3.register_backward_hook(self.activations_hook)
-        
+        self.stage3[20].norm2.register_backward_hook(self.activations_gradients_hook)
+        self.stage3[20].norm2.register_forward_hook(self.activations_hook)
+
         self.merge3 = Merge_Block(curr_dim, curr_dim*2)
         curr_dim = curr_dim*2
         self.stage4 = nn.ModuleList(
@@ -329,14 +331,17 @@ class CSWinTransformer(nn.Module):
     def get_classifier(self):
         return self.head
 
-    def activations_hook(self, grad):
+    def activations_hook(self, act):
+        self.activations = act
+
+    def activations_gradients_hook(self, grad):
         self.gradients = grad
 
     def get_activations_gradient(self):
         return self.gradients
 
-    def get_activations(self, x):
-        return self.stage3[20].norm2(x)
+    def get_activations(self):
+        return self.activations
     
     def reset_classifier(self, num_classes, global_pool=''):
         if self.num_classes != num_classes:
