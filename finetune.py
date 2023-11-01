@@ -734,26 +734,26 @@ def grad(cam, model, loader, dataset, args):
 
     end = time.time()
     last_idx = len(loader) - 1
-    with torch.no_grad():
-        for batch_idx, (input, target) in enumerate(loader):
-            for i in range(len(target)):
-                t = target[i].cpu()
-                shape = [1]
-                print("input shape", input[i].cpu().numpy().shape)
-                for j in input[i].cpu().numpy().shape:
-                    shape.append(int(j))
-                print(shape)
-                input_t = input[i].reshape(shape)
-                print(t)
-                dataset.__getitem__(t)
-                print(dataset.tmp_path)
-                img = load_img(dataset.tmp_path)
-                print(input_t.shape)
-                result = cam(input_t)
+    # with torch.no_grad():
+    for batch_idx, (input, target) in enumerate(loader):
+        for i in range(len(target)):
+            t = target[i].cpu()
+            shape = [1]
+            print("input shape", input[i].cpu().numpy().shape)
+            for j in input[i].cpu().numpy().shape:
+                shape.append(int(j))
+            print(shape)
+            input_t = input[i].reshape(shape)
+            print(t)
+            dataset.__getitem__(t)
+            print(dataset.tmp_path)
+            img = load_img(dataset.tmp_path)
+            print(input_t.shape)
+            result = cam(input_t)
 
-                cam_image = show_cam_on_image(img, result)
-                cv2.imwrite("cam.png", cam_image)
-                break
+            cam_image = show_cam_on_image(img, result)
+            cv2.imwrite("cam.png", cam_image)
+            break
 
 def load_img(filepath):
     img = Image.open(filepath).convert('RGB')
