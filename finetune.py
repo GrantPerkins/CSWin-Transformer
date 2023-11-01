@@ -21,6 +21,8 @@ import torch.nn as nn
 import torchvision.utils
 from torch.nn.parallel import DistributedDataParallel as NativeDDP
 
+from gradcam import GradCAM
+
 from timm.data import Dataset, create_loader, resolve_data_config, Mixup, FastCollateMixup, AugMixDataset
 from timm.models import create_model, resume_checkpoint, convert_splitbn_model
 from timm.utils import *
@@ -704,12 +706,21 @@ def main():
         # load_checkpoint(model, args.eval_checkpoint, args.model_ema)
         val_metrics = validate(model, loader_eval, validate_loss_fn, args)
         print(f"Top-1 accuracy of the model is: {val_metrics['top1']:.1f}%")
-        for child in model.children():
+        for child in model.layers:
             print(child)
         print([*model.children()][-3][0].mlp.fc1.size())
+        # target_layers = []
+        # GradCAM(model=model, target_layers=target_layers, reshape_transform=reshape_transform)
         return
 
+def reshape_transform(tensor, height=16, width=16):
+    result = tensor.reshape(tensor.size(0),
+        height, width, tensor.size(2))
 
+    # Bring the channels to the first dimension,
+    # like in CNNs.
+    result = result.transpose(2, 3).transpose(1, 2)
+    return result
 
 def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix=''):
     batch_time_m = AverageMeter()
