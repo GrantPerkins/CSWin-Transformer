@@ -706,7 +706,7 @@ def main():
         print(f"Top-1 accuracy of the model is: {val_metrics['top1']:.1f}%")
         for child in model.children():
             print(child)
-        print([*model.children()][-3][0].mlp.fc1.shape)
+        print([*model.children()][-3][0].mlp.fc1.size())
         return
 
 
