@@ -8,6 +8,9 @@
 import argparse
 import copy
 import time
+
+from PIL import Image
+import cv2
 import yaml
 import os
 import logging
@@ -22,6 +25,7 @@ import torchvision.utils
 from torch.nn.parallel import DistributedDataParallel as NativeDDP
 
 from pytorch_grad_cam import GradCAM
+from pytorch_grad_cam.utils.image import show_cam_on_image
 
 from timm.data import Dataset, create_loader, resolve_data_config, Mixup, FastCollateMixup, AugMixDataset
 from timm.models import create_model, resume_checkpoint, convert_splitbn_model
@@ -738,9 +742,15 @@ def grad(cam, model, loader, dataset, args):
                 print(t)
                 dataset.__getitem__(t)
                 print(dataset.tmp_path)
+                img = load_img(dataset.tmp_path)
+                result = cam(input_t)
+                cam_image = show_cam_on_image(img, result)
+                cv2.imwrite("cam.png", cam_image)
                 break
 
-
+def load_img(filepath):
+    img = Image.open(filepath).convert('RGB')
+    return img
 def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix=''):
     batch_time_m = AverageMeter()
     losses_m = AverageMeter()
