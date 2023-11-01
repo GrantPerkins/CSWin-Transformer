@@ -754,7 +754,8 @@ def grad(cam, model, loader, dataset, args, amp_autocast=suppress):
             print(input_t.shape)
             with amp_autocast():
                 result = model(input_t)
-                result.backward()
+                print(result.shape)
+                result[:, torch.argmax(result,dim=1)].backward()
                 gradients = model.get_activations_gradient()
                 activations = model.get_activations(input_t)
 
