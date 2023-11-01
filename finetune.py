@@ -751,15 +751,15 @@ def grad(cam, model, loader, dataset, args, amp_autocast=suppress):
             print(dataset.tmp_path)
             img = load_img(dataset.tmp_path)
             img = np.array(img)/255
-            print(input_t.shape)
+            print("input shape", input_t.shape)
             with amp_autocast():
-                result = cam(input_t).reshape((224, 224, 1))
-            print(result.shape)
+                result = cam(input_t)
+            print("result shape", result.shape)
             name = Path(dataset.tmp_path).stem
             cam_image = show_cam_on_image(img, result)
             cv2.imwrite(f"cam/{name}.png", cam_image)
-            # break
-        # break
+            break
+        break
 
 def load_img(filepath):
     img = Image.open(filepath).convert('RGB')
