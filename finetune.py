@@ -753,7 +753,7 @@ def grad(cam, model, loader, dataset, args):
             result = cam(input_t).reshape((224, 224, 1))
             print(result.shape)
 
-            cam_image = show_cam_on_image(img, result)
+            cam_image = show_cam_on_image(img/255, result)
             cv2.imwrite("cam.png", cam_image)
             break
 
