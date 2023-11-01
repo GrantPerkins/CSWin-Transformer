@@ -750,7 +750,7 @@ def grad(cam, model, loader, dataset, args):
             print(dataset.tmp_path)
             img = load_img(dataset.tmp_path)
             print(input_t.shape)
-            result = cam(input_t)
+            result = cam(input_t).reshape((224, 224, 1))
             print(result.shape)
 
             cam_image = show_cam_on_image(img, result)
