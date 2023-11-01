@@ -758,7 +758,6 @@ def grad(cam, model, loader, dataset, args, amp_autocast=suppress):
             name = Path(dataset.tmp_path).stem
             cam_image = show_cam_on_image(img, result)
             cv2.imwrite(f"cam/{name}.png", cam_image)
-        break
 
 def load_img(filepath):
     img = Image.open(filepath).convert('RGB')
