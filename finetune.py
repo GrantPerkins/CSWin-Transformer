@@ -283,6 +283,7 @@ def _parse_args():
 
 def load_checkpoint(args, model, checkpoint_path, use_ema=False):
     if checkpoint_path and os.path.isfile(checkpoint_path):
+        print("Confirmed checkpoint path:", checkpoint_path)
         checkpoint = torch.load(checkpoint_path, map_location='cpu')
         state_dict_key = 'state_dict'
         model_key = 'model'
