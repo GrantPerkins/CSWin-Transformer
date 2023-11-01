@@ -714,12 +714,12 @@ def main():
         return
 
 def reshape_transform(tensor, height=16, width=16):
-    result = tensor.reshape(tensor.size(0),
-        height, width, tensor.size(2))
+    result = tensor.reshape(-1,
+        height, width)
 
     # Bring the channels to the first dimension,
     # like in CNNs.
-    result = result.transpose(2, 3).transpose(1, 2)
+    # result = result.transpose(2, 3).transpose(1, 2)
     return result
 
 def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix=''):
