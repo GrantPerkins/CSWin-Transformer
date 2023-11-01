@@ -730,7 +730,7 @@ def reshape_transform(tensor, height=16, width=16):
     # result = result.transpose(2, 3).transpose(1, 2)
     return result
 
-def grad(cam, model, loader, dataset, args):
+def grad(cam, model, loader, dataset, args, amp_autocast=suppress):
     model.eval()
 
     end = time.time()
@@ -751,7 +751,8 @@ def grad(cam, model, loader, dataset, args):
             img = load_img(dataset.tmp_path)
             img = np.array(img)/255
             print(input_t.shape)
-            result = cam(input_t).reshape((224, 224, 1))
+            with amp_autocast():
+                result = cam(input_t).reshape((224, 224, 1))
             print(result.shape)
 
             cam_image = show_cam_on_image(img, result)
