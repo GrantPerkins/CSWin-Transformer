@@ -18,6 +18,7 @@ def load_img(filepath):
 
 class McDataset(Dataset):
     def __init__(self, data_root, file_list, phase = 'train', transform=None):
+        self.phase = phase
         self.transform = transform
         self.root = os.path.join(data_root, phase)
         
@@ -36,6 +37,7 @@ class McDataset(Dataset):
 
         self.num = len(self.A_paths)
         self.A_size = len(self.A_paths)
+        self.tmp_path = None
  
     def __len__(self):
         return self.num
@@ -46,8 +48,11 @@ class McDataset(Dataset):
 
     def load_img(self, index):
         A_path = self.A_paths[index % self.A_size]
+        self.tmp_path = A_path
         A = load_img(A_path)
         if self.transform is not None:
             A = self.transform(A)
         A_label = self.A_labels[index % self.A_size]
+        if self.phase == "val":
+            return A, index
         return A, A_label
