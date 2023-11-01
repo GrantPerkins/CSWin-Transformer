@@ -654,21 +654,3 @@ tensor(0)
 /home/gcperkins/full_size_pu/val/1/stage_1_56450.jpg
 torch.Size([1, 3, 224, 224])
 (224, 224, 1)
-input shape (3, 224, 224)
-[1, 3, 224, 224]
-tensor(64)
-/home/gcperkins/full_size_pu/val/2/stage_2_63050.jpg
-torch.Size([1, 3, 224, 224])
-(224, 224, 1)
-input shape (3, 224, 224)
-[1, 3, 224, 224]
-tensor(128)
-/home/gcperkins/full_size_pu/val/3/stage_3_6836.jpg
-torch.Size([1, 3, 224, 224])
-(224, 224, 1)
-input shape (3, 224, 224)
-[1, 3, 224, 224]
-tensor(192)
-/home/gcperkins/full_size_pu/val/4/stage_4_79270.jpg
-torch.Size([1, 3, 224, 224])
-(224, 224, 1)
