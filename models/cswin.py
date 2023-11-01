@@ -203,6 +203,7 @@ class CSWinBlock(nn.Module):
             attened_x = self.attns[0](qkv)
         attened_x = self.proj(attened_x)
         x = x + self.drop_path(attened_x)
+        print(x)
         x = x + self.drop_path(self.mlp(self.norm2(x)))
 
         return x
