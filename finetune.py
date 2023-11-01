@@ -712,8 +712,7 @@ def main():
         target_layers = [[*model.children()][-5][20].norm2]
         print(target_layers[0])
         cam = GradCAM(model=model, target_layers=target_layers, reshape_transform=reshape_transform)
-        for i in range(4):
-            grad(cam, model, loader_eval, dataset_eval, args)
+        grad(cam, model, loader_eval, dataset_eval, args)
 
         return
 
@@ -733,10 +732,13 @@ def grad(cam, model, loader, dataset, args):
     last_idx = len(loader) - 1
     with torch.no_grad():
         for batch_idx, (input, target) in enumerate(loader):
-            print(target)
-            dataset.__getitem__(target)
-            print(dataset.tmp_path)
-            break
+            for i in range(len(target)):
+                t = target[i]
+                input_t = input[i]
+                print(target)
+                dataset.__getitem__(target)
+                print(dataset.tmp_path)
+                break
 
 
 def validate(model, loader, loss_fn, args, amp_autocast=suppress, log_suffix=''):
