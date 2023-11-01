@@ -757,7 +757,8 @@ def grad(model, loader, dataset, args, amp_autocast=suppress):
                 print(result.shape)
                 result[:, torch.argmax(result,dim=1)].backward()
                 gradients = model.get_activations_gradient()
-                activations = model.get_activations()
+                print("gradients shape", gradients.detach().size())
+                activations = model.get_activations().detach()
 
             break
         break
