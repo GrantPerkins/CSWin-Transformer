@@ -757,7 +757,7 @@ def grad(cam, model, loader, dataset, args, amp_autocast=suppress):
             print("result shape", result.shape)
             name = Path(dataset.tmp_path).stem
             cam_image = show_cam_on_image(img, result)
-            cv2.imwrite(f"cam/{name}.png", cam_image)
+            cv2.imwrite(f"c/gradcam/{name}.png", cam_image)
             # break
         # break
 
