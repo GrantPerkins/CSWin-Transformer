@@ -295,7 +295,7 @@ class CSWinTransformer(nn.Module):
             for i in range(depth[2])])
 
         self.stage3 = nn.ModuleList(temp_stage3)
-        self.stage3[20].norm2.register_backward_hook(self.activations_gradients_hook)
+        self.stage3[20].norm2.register_hook(self.activations_gradients_hook)
         self.stage3[20].norm2.register_forward_hook(self.activations_hook)
 
         self.merge3 = Merge_Block(curr_dim, curr_dim*2)
@@ -334,8 +334,8 @@ class CSWinTransformer(nn.Module):
     def activations_hook(self, module, input, output):
         self.activations = output
 
-    def activations_gradients_hook(self, module, in_grad, out_grad):
-        self.gradients = in_grad
+    def activations_gradients_hook(self, grad):
+        self.gradients = grad
 
     def get_activations_gradient(self):
         return self.gradients
