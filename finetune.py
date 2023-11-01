@@ -708,8 +708,9 @@ def main():
         print(f"Top-1 accuracy of the model is: {val_metrics['top1']:.1f}%")
         for child in model.children():
             print(child)
-        print([*model.children()][-3][0].mlp.fc1.size())
+        # print([*model.children()][-3][0].mlp.fc1.size())
         target_layers = [[*model.children()][-5][20].norm2]
+        print(target_layers[0])
         GradCAM(model=model, target_layers=target_layers, reshape_transform=reshape_transform)
         return
 
