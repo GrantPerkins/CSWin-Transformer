@@ -715,7 +715,7 @@ def main():
         for child in model.children():
             print(child)
         # print([*model.children()][-3][0].mlp.fc1.size())
-        target_layers = [[*model.children()][-5][20].norm2]
+        target_layers = [model.norm]
         print(target_layers[0])
         cam = GradCAM(model=model, target_layers=target_layers, reshape_transform=reshape_transform)
         grad(cam, model, loader_eval, dataset_eval, args)
