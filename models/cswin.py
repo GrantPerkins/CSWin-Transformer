@@ -295,8 +295,6 @@ class CSWinTransformer(nn.Module):
             for i in range(depth[2])])
 
         self.stage3 = nn.ModuleList(temp_stage3)
-        self.stage3[20].norm2.register_backward_hook(self.activations_gradients_hook)
-        self.stage3[20].norm2.register_forward_hook(self.activations_hook)
 
         self.merge3 = Merge_Block(curr_dim, curr_dim*2)
         curr_dim = curr_dim*2
@@ -310,6 +308,9 @@ class CSWinTransformer(nn.Module):
 
        
         self.norm = norm_layer(curr_dim)
+        self.norm.register_backward_hook(self.activations_gradients_hook)
+        self.norm.register_forward_hook(self.activations_hook)
+
         # Classifier head
         self.head = nn.Linear(curr_dim, num_classes) if num_classes > 0 else nn.Identity()
 
