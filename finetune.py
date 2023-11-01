@@ -751,7 +751,7 @@ def grad(cam, model, loader, dataset, args):
             img = load_img(dataset.tmp_path)
             print(input_t.shape)
             result = cam(input_t) * 256
-            result = result.as_type(np.uint8)
+            result = result.astype(np.uint8)
             print(result)
 
             cam_image = show_cam_on_image(img, result)
