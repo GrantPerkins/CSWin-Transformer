@@ -9,6 +9,7 @@ import argparse
 import copy
 import time
 
+import numpy as np
 from PIL import Image
 import cv2
 import yaml
@@ -749,7 +750,8 @@ def grad(cam, model, loader, dataset, args):
             print(dataset.tmp_path)
             img = load_img(dataset.tmp_path)
             print(input_t.shape)
-            result = cam(input_t)
+            result = cam(input_t) * 256
+            result = result.as_type(np.uint8)
             print(result)
 
             cam_image = show_cam_on_image(img, result)
