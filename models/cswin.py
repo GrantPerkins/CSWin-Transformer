@@ -331,8 +331,8 @@ class CSWinTransformer(nn.Module):
     def get_classifier(self):
         return self.head
 
-    def activations_hook(self, act):
-        self.activations = act
+    def activations_hook(self, input, output):
+        self.activations = output
 
     def activations_gradients_hook(self, grad):
         self.gradients = grad
