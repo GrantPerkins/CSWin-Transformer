@@ -728,7 +728,7 @@ def reshape_transform(tensor, height=7, width=7):
 
     # Bring the channels to the first dimension,
     # like in CNNs.
-    result = result.transpose(0,3,1,2)
+    result = result.transpose(2,3).transpose(1,2)
     return result
 
 def grad(cam, model, loader, dataset, args, amp_autocast=suppress):
