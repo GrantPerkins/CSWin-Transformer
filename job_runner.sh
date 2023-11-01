@@ -10,7 +10,7 @@
 #SBATCH --mail-user=gcperkins@wpi.edu  # change to your own email address and change the below to your virtual environment setting
 
 
-bash finetune.sh 1 --data /home/gcperkins/full_size_pu --model CSWin_96_24322_base_224 -b 64 \
+bash finetune.sh 1 --data /home/gcperkins/full_size_pu --model CSWin_64_12211_tiny_224 -b 64 \
  --lr 2.5e-4 --min-lr 5e-8 --weight-decay 1e-8 --amp --img-size 224 \
  --warmup-epochs 0 --model-ema-decay 0.9996 \
  --eval_checkpoint /home/gcperkins/model_best.pth.tar \
