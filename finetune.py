@@ -750,6 +750,7 @@ def grad(cam, model, loader, dataset, args):
             img = load_img(dataset.tmp_path)
             print(input_t.shape)
             result = cam(input_t)
+            print(result)
 
             cam_image = show_cam_on_image(img, result)
             cv2.imwrite("cam.png", cam_image)
