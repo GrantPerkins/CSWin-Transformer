@@ -709,8 +709,8 @@ def main():
         for child in model.layers:
             print(child)
         print([*model.children()][-3][0].mlp.fc1.size())
-        # target_layers = []
-        # GradCAM(model=model, target_layers=target_layers, reshape_transform=reshape_transform)
+        target_layers = [[*model.children()][-5][20].norm2]
+        GradCAM(model=model, target_layers=target_layers, reshape_transform=reshape_transform)
         return
 
 def reshape_transform(tensor, height=16, width=16):
