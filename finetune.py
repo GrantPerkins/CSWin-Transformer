@@ -739,6 +739,7 @@ def grad(cam, model, loader, dataset, args):
             for i in range(len(target)):
                 t = target[i].cpu()
                 shape = [1]
+                print(input[i].cpu().numpy())
                 for j in input[i].cpu().numpy():
                     shape.append(int(j))
                 print(shape)
