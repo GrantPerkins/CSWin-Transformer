@@ -753,13 +753,13 @@ def grad(cam, model, loader, dataset, args, amp_autocast=suppress):
             img = np.array(img)/255
             print(input_t.shape)
             with amp_autocast():
-                result = cam(input_t).reshape((224, 224, 1))
-            print(result.shape)
-            name = Path(dataset.tmp_path).stem
-            cam_image = show_cam_on_image(img, result)
-            cv2.imwrite(f"cam/{name}.png", cam_image)
-            # break
-        # break
+                result = model(input_t)
+                result.backward()
+                gradients = model.get_activations_gradient()
+                activations = model.get_activations(input_t)
+
+            break
+        break
 
 def load_img(filepath):
     img = Image.open(filepath).convert('RGB')
