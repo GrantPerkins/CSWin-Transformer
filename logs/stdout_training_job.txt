@@ -654,3 +654,381 @@ tensor(0)
 /home/gcperkins/full_size_pu/val/1/stage_1_56450.jpg
 torch.Size([1, 3, 224, 224])
 (224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(1)
+/home/gcperkins/full_size_pu/val/1/stage_1_56981.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(2)
+/home/gcperkins/full_size_pu/val/1/stage_1_57315.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(3)
+/home/gcperkins/full_size_pu/val/1/stage_1_5767.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(4)
+/home/gcperkins/full_size_pu/val/1/stage_1_57710.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(5)
+/home/gcperkins/full_size_pu/val/1/stage_1_57860.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(6)
+/home/gcperkins/full_size_pu/val/1/stage_1_58048.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(7)
+/home/gcperkins/full_size_pu/val/1/stage_1_58672.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(8)
+/home/gcperkins/full_size_pu/val/1/stage_1_58916.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(9)
+/home/gcperkins/full_size_pu/val/1/stage_1_59646.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(10)
+/home/gcperkins/full_size_pu/val/1/stage_1_59688.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(11)
+/home/gcperkins/full_size_pu/val/1/stage_1_59706.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(12)
+/home/gcperkins/full_size_pu/val/1/stage_1_59723.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(13)
+/home/gcperkins/full_size_pu/val/1/stage_1_61844.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(14)
+/home/gcperkins/full_size_pu/val/1/stage_1_62380.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(15)
+/home/gcperkins/full_size_pu/val/1/stage_1_62707.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(16)
+/home/gcperkins/full_size_pu/val/1/stage_1_64066.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(17)
+/home/gcperkins/full_size_pu/val/1/stage_1_64340.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(18)
+/home/gcperkins/full_size_pu/val/1/stage_1_64761.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(19)
+/home/gcperkins/full_size_pu/val/1/stage_1_64902.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(20)
+/home/gcperkins/full_size_pu/val/1/stage_1_64923.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(21)
+/home/gcperkins/full_size_pu/val/1/stage_1_65864.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(22)
+/home/gcperkins/full_size_pu/val/1/stage_1_65926.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(23)
+/home/gcperkins/full_size_pu/val/1/stage_1_66343.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(24)
+/home/gcperkins/full_size_pu/val/1/stage_1_66363.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(25)
+/home/gcperkins/full_size_pu/val/1/stage_1_66376.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(26)
+/home/gcperkins/full_size_pu/val/1/stage_1_66861.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(27)
+/home/gcperkins/full_size_pu/val/1/stage_1_68177.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(28)
+/home/gcperkins/full_size_pu/val/1/stage_1_68506.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(29)
+/home/gcperkins/full_size_pu/val/1/stage_1_68712.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(30)
+/home/gcperkins/full_size_pu/val/1/stage_1_70402.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(31)
+/home/gcperkins/full_size_pu/val/1/stage_1_70472.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(32)
+/home/gcperkins/full_size_pu/val/1/stage_1_70859.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(33)
+/home/gcperkins/full_size_pu/val/1/stage_1_7130.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(34)
+/home/gcperkins/full_size_pu/val/1/stage_1_72077.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(35)
+/home/gcperkins/full_size_pu/val/1/stage_1_72437.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(36)
+/home/gcperkins/full_size_pu/val/1/stage_1_7278.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(37)
+/home/gcperkins/full_size_pu/val/1/stage_1_73024.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(38)
+/home/gcperkins/full_size_pu/val/1/stage_1_73442.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(39)
+/home/gcperkins/full_size_pu/val/1/stage_1_73778.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(40)
+/home/gcperkins/full_size_pu/val/1/stage_1_74150.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(41)
+/home/gcperkins/full_size_pu/val/1/stage_1_74220.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(42)
+/home/gcperkins/full_size_pu/val/1/stage_1_74781.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(43)
+/home/gcperkins/full_size_pu/val/1/stage_1_75743.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(44)
+/home/gcperkins/full_size_pu/val/1/stage_1_75775.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(45)
+/home/gcperkins/full_size_pu/val/1/stage_1_77827.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(46)
+/home/gcperkins/full_size_pu/val/2/stage_2_58817.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(47)
+/home/gcperkins/full_size_pu/val/2/stage_2_59338.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(48)
+/home/gcperkins/full_size_pu/val/2/stage_2_59382.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(49)
+/home/gcperkins/full_size_pu/val/2/stage_2_59422.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(50)
+/home/gcperkins/full_size_pu/val/2/stage_2_60264.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(51)
+/home/gcperkins/full_size_pu/val/2/stage_2_60269.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(52)
+/home/gcperkins/full_size_pu/val/2/stage_2_60339.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(53)
+/home/gcperkins/full_size_pu/val/2/stage_2_6073.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(54)
+/home/gcperkins/full_size_pu/val/2/stage_2_61228.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(55)
+/home/gcperkins/full_size_pu/val/2/stage_2_61858.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(56)
+/home/gcperkins/full_size_pu/val/2/stage_2_62041.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(57)
+/home/gcperkins/full_size_pu/val/2/stage_2_6212.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(58)
+/home/gcperkins/full_size_pu/val/2/stage_2_62171.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(59)
+/home/gcperkins/full_size_pu/val/2/stage_2_62396.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(60)
+/home/gcperkins/full_size_pu/val/2/stage_2_62455.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(61)
+/home/gcperkins/full_size_pu/val/2/stage_2_62524.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(62)
+/home/gcperkins/full_size_pu/val/2/stage_2_62700.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
+input shape (3, 224, 224)
+[1, 3, 224, 224]
+tensor(63)
+/home/gcperkins/full_size_pu/val/2/stage_2_62883.jpg
+torch.Size([1, 3, 224, 224])
+(224, 224, 1)
