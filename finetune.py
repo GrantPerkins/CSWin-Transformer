@@ -9,6 +9,7 @@ import argparse
 import copy
 import time
 
+from pathlib import Path
 import numpy as np
 from PIL import Image
 import cv2
@@ -754,10 +755,11 @@ def grad(cam, model, loader, dataset, args, amp_autocast=suppress):
             with amp_autocast():
                 result = cam(input_t).reshape((224, 224, 1))
             print(result.shape)
-
+            name = Path(dataset.tmp_path).stem
             cam_image = show_cam_on_image(img, result)
-            cv2.imwrite("cam.png", cam_image)
+            cv2.imwrite(f"cam/{name}.png", cam_image)
             break
+        break
 
 def load_img(filepath):
     img = Image.open(filepath).convert('RGB')
