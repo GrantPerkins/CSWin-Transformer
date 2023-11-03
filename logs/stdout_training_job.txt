@@ -22,8 +22,6 @@ master_weights         : None
 loss_scale             : dynamic
 loader train len: 10
 loader eval len: 4
-Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 65536.0
 Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 32768.0
-Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 16384.0
-Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 8192.0
-{'Model': ['CSWin_96_24322_base_224'], 'Accuracy': [0.7671232876712328], 'F1-Score': [0.7718434090198796], 'Sensitivity': [0.7671042725390551], 'Specificity': [0.9215547921930975], 'TPR': [0.7671042725390551], 'FPR': [0.44839730484408147], 'PPV': [0.7809582890228051], 'NPV': [0.9217346918838654], 'AUC': [0.9294759720774499], 'acc_1': [0.8043478260869565], 'acc_2': [0.8095238095238095], 'acc_3': [0.6545454545454545], 'acc_4': [0.8]}
+Gradient overflow.  Skipping step, loss scaler 0 reducing loss scale to 32768.0
+{'Model': ['CSWin_64_12211_tiny_224'], 'Accuracy': [0.7853881278538812], 'F1-Score': [0.7901956870312168], 'Sensitivity': [0.7852860907208734], 'Specificity': [0.9275741793100457], 'TPR': [0.7852860907208734], 'FPR': [0.4506477821695213], 'PPV': [0.7987801940899545], 'NPV': [0.9277412804586718], 'AUC': [0.9410684940639842], 'acc_1': [0.8043478260869565], 'acc_2': [0.8095238095238095], 'acc_3': [0.7090909090909091], 'acc_4': [0.8181818181818182]}
